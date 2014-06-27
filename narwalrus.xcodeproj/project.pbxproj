@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
+		549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D0195D33D400DDE088 /* CoreGraphics.framework */; };
+		549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
+		549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 549A20D7195D33D500DDE088 /* InfoPlist.strings */; };
+		549A20DB195D33D500DDE088 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20DA195D33D500DDE088 /* main.m */; };
+		549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20DE195D33D500DDE088 /* NARAppDelegate.m */; };
+		549A20E1195D33D500DDE088 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 549A20E0195D33D500DDE088 /* Images.xcassets */; };
+		549A20E8195D33D500DDE088 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20E7195D33D500DDE088 /* XCTest.framework */; };
+		549A20E9195D33D500DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
+		549A20EA195D33D500DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
+		549A20F2195D33D500DDE088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 549A20F0195D33D500DDE088 /* InfoPlist.strings */; };
+		549A20F4195D33D500DDE088 /* narwalrusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20F3195D33D500DDE088 /* narwalrusTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		549A20EB195D33D500DDE088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 549A20C3195D33D400DDE088 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 549A20CA195D33D400DDE088;
+			remoteInfo = narwalrus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		549A20CB195D33D400DDE088 /* narwalrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = narwalrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		549A20CE195D33D400DDE088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		549A20D0195D33D400DDE088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		549A20D2195D33D400DDE088 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		549A20D6195D33D500DDE088 /* narwalrus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "narwalrus-Info.plist"; sourceTree = "<group>"; };
+		549A20D8195D33D500DDE088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		549A20DA195D33D500DDE088 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		549A20DC195D33D500DDE088 /* narwalrus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "narwalrus-Prefix.pch"; sourceTree = "<group>"; };
+		549A20DD195D33D500DDE088 /* NARAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NARAppDelegate.h; sourceTree = "<group>"; };
+		549A20DE195D33D500DDE088 /* NARAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NARAppDelegate.m; sourceTree = "<group>"; };
+		549A20E0195D33D500DDE088 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		549A20E6195D33D500DDE088 /* narwalrusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = narwalrusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		549A20E7195D33D500DDE088 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		549A20EF195D33D500DDE088 /* narwalrusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "narwalrusTests-Info.plist"; sourceTree = "<group>"; };
+		549A20F1195D33D500DDE088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		549A20F3195D33D500DDE088 /* narwalrusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = narwalrusTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		549A20C8195D33D400DDE088 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */,
+				549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */,
+				549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		549A20E3195D33D500DDE088 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549A20E8195D33D500DDE088 /* XCTest.framework in Frameworks */,
+				549A20EA195D33D500DDE088 /* UIKit.framework in Frameworks */,
+				549A20E9195D33D500DDE088 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		549A20C2195D33D400DDE088 = {
+			isa = PBXGroup;
+			children = (
+				549A20D4195D33D400DDE088 /* narwalrus */,
+				549A20ED195D33D500DDE088 /* narwalrusTests */,
+				549A20CD195D33D400DDE088 /* Frameworks */,
+				549A20CC195D33D400DDE088 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		549A20CC195D33D400DDE088 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				549A20CB195D33D400DDE088 /* narwalrus.app */,
+				549A20E6195D33D500DDE088 /* narwalrusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		549A20CD195D33D400DDE088 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				549A20CE195D33D400DDE088 /* Foundation.framework */,
+				549A20D0195D33D400DDE088 /* CoreGraphics.framework */,
+				549A20D2195D33D400DDE088 /* UIKit.framework */,
+				549A20E7195D33D500DDE088 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		549A20D4195D33D400DDE088 /* narwalrus */ = {
+			isa = PBXGroup;
+			children = (
+				549A20DD195D33D500DDE088 /* NARAppDelegate.h */,
+				549A20DE195D33D500DDE088 /* NARAppDelegate.m */,
+				549A20E0195D33D500DDE088 /* Images.xcassets */,
+				549A20D5195D33D500DDE088 /* Supporting Files */,
+			);
+			path = narwalrus;
+			sourceTree = "<group>";
+		};
+		549A20D5195D33D500DDE088 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				549A20D6195D33D500DDE088 /* narwalrus-Info.plist */,
+				549A20D7195D33D500DDE088 /* InfoPlist.strings */,
+				549A20DA195D33D500DDE088 /* main.m */,
+				549A20DC195D33D500DDE088 /* narwalrus-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		549A20ED195D33D500DDE088 /* narwalrusTests */ = {
+			isa = PBXGroup;
+			children = (
+				549A20F3195D33D500DDE088 /* narwalrusTests.m */,
+				549A20EE195D33D500DDE088 /* Supporting Files */,
+			);
+			path = narwalrusTests;
+			sourceTree = "<group>";
+		};
+		549A20EE195D33D500DDE088 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				549A20EF195D33D500DDE088 /* narwalrusTests-Info.plist */,
+				549A20F0195D33D500DDE088 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		549A20CA195D33D400DDE088 /* narwalrus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 549A20F7195D33D500DDE088 /* Build configuration list for PBXNativeTarget "narwalrus" */;
+			buildPhases = (
+				549A20C7195D33D400DDE088 /* Sources */,
+				549A20C8195D33D400DDE088 /* Frameworks */,
+				549A20C9195D33D400DDE088 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = narwalrus;
+			productName = narwalrus;
+			productReference = 549A20CB195D33D400DDE088 /* narwalrus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		549A20E5195D33D500DDE088 /* narwalrusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 549A20FA195D33D500DDE088 /* Build configuration list for PBXNativeTarget "narwalrusTests" */;
+			buildPhases = (
+				549A20E2195D33D500DDE088 /* Sources */,
+				549A20E3195D33D500DDE088 /* Frameworks */,
+				549A20E4195D33D500DDE088 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				549A20EC195D33D500DDE088 /* PBXTargetDependency */,
+			);
+			name = narwalrusTests;
+			productName = narwalrusTests;
+			productReference = 549A20E6195D33D500DDE088 /* narwalrusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		549A20C3195D33D400DDE088 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NAR;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = sportanova;
+				TargetAttributes = {
+					549A20E5195D33D500DDE088 = {
+						TestTargetID = 549A20CA195D33D400DDE088;
+					};
+				};
+			};
+			buildConfigurationList = 549A20C6195D33D400DDE088 /* Build configuration list for PBXProject "narwalrus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 549A20C2195D33D400DDE088;
+			productRefGroup = 549A20CC195D33D400DDE088 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				549A20CA195D33D400DDE088 /* narwalrus */,
+				549A20E5195D33D500DDE088 /* narwalrusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		549A20C9195D33D400DDE088 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,
+				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		549A20E4195D33D500DDE088 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549A20F2195D33D500DDE088 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		549A20C7195D33D400DDE088 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */,
+				549A20DB195D33D500DDE088 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		549A20E2195D33D500DDE088 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549A20F4195D33D500DDE088 /* narwalrusTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		549A20EC195D33D500DDE088 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 549A20CA195D33D400DDE088 /* narwalrus */;
+			targetProxy = 549A20EB195D33D500DDE088 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		549A20D7195D33D500DDE088 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				549A20D8195D33D500DDE088 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		549A20F0195D33D500DDE088 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				549A20F1195D33D500DDE088 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		549A20F5195D33D500DDE088 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		549A20F6195D33D500DDE088 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		549A20F8195D33D500DDE088 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "narwalrus/narwalrus-Prefix.pch";
+				INFOPLIST_FILE = "narwalrus/narwalrus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		549A20F9195D33D500DDE088 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "narwalrus/narwalrus-Prefix.pch";
+				INFOPLIST_FILE = "narwalrus/narwalrus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		549A20FB195D33D500DDE088 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/narwalrus.app/narwalrus";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "narwalrus/narwalrus-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "narwalrusTests/narwalrusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		549A20FC195D33D500DDE088 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/narwalrus.app/narwalrus";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "narwalrus/narwalrus-Prefix.pch";
+				INFOPLIST_FILE = "narwalrusTests/narwalrusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		549A20C6195D33D400DDE088 /* Build configuration list for PBXProject "narwalrus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				549A20F5195D33D500DDE088 /* Debug */,
+				549A20F6195D33D500DDE088 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		549A20F7195D33D500DDE088 /* Build configuration list for PBXNativeTarget "narwalrus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				549A20F8195D33D500DDE088 /* Debug */,
+				549A20F9195D33D500DDE088 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		549A20FA195D33D500DDE088 /* Build configuration list for PBXNativeTarget "narwalrusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				549A20FB195D33D500DDE088 /* Debug */,
+				549A20FC195D33D500DDE088 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 549A20C3195D33D400DDE088 /* Project object */;
+}
