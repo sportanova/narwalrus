@@ -7,15 +7,21 @@
 //
 
 #import "NARAppDelegate.h"
+#import "NARConversationsViewController.h"
 
 @implementation NARAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  NSBundle *appBundle = [NSBundle mainBundle];
+
+  NARConversationsViewController *conversationVC = [[NARConversationsViewController alloc] initWithNibName:@"NARConversationsViewController" bundle:appBundle];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+  
+  self.window.rootViewController = conversationVC;
     return YES;
 }
 

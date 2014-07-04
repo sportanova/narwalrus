@@ -19,6 +19,8 @@
 		549A20EA195D33D500DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
 		549A20F2195D33D500DDE088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 549A20F0195D33D500DDE088 /* InfoPlist.strings */; };
 		549A20F4195D33D500DDE088 /* narwalrusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20F3195D33D500DDE088 /* narwalrusTests.m */; };
+		549A2100195D351500DDE088 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20FE195D351500DDE088 /* NARConversationsViewController.m */; };
+		549A2101195D351500DDE088 /* NARConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549A20FF195D351500DDE088 /* NARConversationsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		549A20EF195D33D500DDE088 /* narwalrusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "narwalrusTests-Info.plist"; sourceTree = "<group>"; };
 		549A20F1195D33D500DDE088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		549A20F3195D33D500DDE088 /* narwalrusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = narwalrusTests.m; sourceTree = "<group>"; };
+		549A20FD195D351500DDE088 /* NARConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationsViewController.h; sourceTree = "<group>"; };
+		549A20FE195D351500DDE088 /* NARConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationsViewController.m; sourceTree = "<group>"; };
+		549A20FF195D351500DDE088 /* NARConversationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARConversationsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 			children = (
 				549A20DD195D33D500DDE088 /* NARAppDelegate.h */,
 				549A20DE195D33D500DDE088 /* NARAppDelegate.m */,
+				549A20FD195D351500DDE088 /* NARConversationsViewController.h */,
+				549A20FE195D351500DDE088 /* NARConversationsViewController.m */,
+				549A20FF195D351500DDE088 /* NARConversationsViewController.xib */,
 				549A20E0195D33D500DDE088 /* Images.xcassets */,
 				549A20D5195D33D500DDE088 /* Supporting Files */,
 			);
@@ -220,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				549A2101195D351500DDE088 /* NARConversationsViewController.xib in Resources */,
 				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,
 				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
 			);
@@ -241,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */,
+				549A2100195D351500DDE088 /* NARConversationsViewController.m in Sources */,
 				549A20DB195D33D500DDE088 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
