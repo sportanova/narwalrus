@@ -19,8 +19,9 @@
 		549A20EA195D33D500DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
 		549A20F2195D33D500DDE088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 549A20F0195D33D500DDE088 /* InfoPlist.strings */; };
 		549A20F4195D33D500DDE088 /* narwalrusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20F3195D33D500DDE088 /* narwalrusTests.m */; };
-		549A2100195D351500DDE088 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20FE195D351500DDE088 /* NARConversationsViewController.m */; };
-		549A2101195D351500DDE088 /* NARConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549A20FF195D351500DDE088 /* NARConversationsViewController.xib */; };
+		54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */; };
+		54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12C1966926900A6EEC3 /* NARConversation.m */; };
+		54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +51,12 @@
 		549A20EF195D33D500DDE088 /* narwalrusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "narwalrusTests-Info.plist"; sourceTree = "<group>"; };
 		549A20F1195D33D500DDE088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		549A20F3195D33D500DDE088 /* narwalrusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = narwalrusTests.m; sourceTree = "<group>"; };
-		549A20FD195D351500DDE088 /* NARConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationsViewController.h; sourceTree = "<group>"; };
-		549A20FE195D351500DDE088 /* NARConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationsViewController.m; sourceTree = "<group>"; };
-		549A20FF195D351500DDE088 /* NARConversationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARConversationsViewController.xib; sourceTree = "<group>"; };
+		54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationsViewController.h; sourceTree = "<group>"; };
+		54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationsViewController.m; sourceTree = "<group>"; };
+		54B2B12B1966926900A6EEC3 /* NARConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversation.h; sourceTree = "<group>"; };
+		54B2B12C1966926900A6EEC3 /* NARConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversation.m; sourceTree = "<group>"; };
+		54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationStore.h; sourceTree = "<group>"; };
+		54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,10 @@
 		549A20C2195D33D400DDE088 = {
 			isa = PBXGroup;
 			children = (
+				54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */,
+				54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */,
+				54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */,
+				54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */,
 				549A20D4195D33D400DDE088 /* narwalrus */,
 				549A20ED195D33D500DDE088 /* narwalrusTests */,
 				549A20CD195D33D400DDE088 /* Frameworks */,
@@ -113,10 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				549A20DD195D33D500DDE088 /* NARAppDelegate.h */,
+				54B2B12B1966926900A6EEC3 /* NARConversation.h */,
+				54B2B12C1966926900A6EEC3 /* NARConversation.m */,
 				549A20DE195D33D500DDE088 /* NARAppDelegate.m */,
-				549A20FD195D351500DDE088 /* NARConversationsViewController.h */,
-				549A20FE195D351500DDE088 /* NARConversationsViewController.m */,
-				549A20FF195D351500DDE088 /* NARConversationsViewController.xib */,
 				549A20E0195D33D500DDE088 /* Images.xcassets */,
 				549A20D5195D33D500DDE088 /* Supporting Files */,
 			);
@@ -228,7 +235,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				549A2101195D351500DDE088 /* NARConversationsViewController.xib in Resources */,
 				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,
 				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
 			);
@@ -250,8 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */,
-				549A2100195D351500DDE088 /* NARConversationsViewController.m in Sources */,
+				54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */,
+				54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */,
 				549A20DB195D33D500DDE088 /* main.m in Sources */,
+				54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +458,7 @@
 				549A20F9195D33D500DDE088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		549A20FA195D33D500DDE088 /* Build configuration list for PBXNativeTarget "narwalrusTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +467,7 @@
 				549A20FC195D33D500DDE088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

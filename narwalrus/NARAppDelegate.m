@@ -13,15 +13,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  NSBundle *appBundle = [NSBundle mainBundle];
+//  NSBundle *appBundle = [NSBundle mainBundle];
 
-  NARConversationsViewController *conversationVC = [[NARConversationsViewController alloc] initWithNibName:@"NARConversationsViewController" bundle:appBundle];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+  NARConversationsViewController *conversationsVC = [[NARConversationsViewController alloc] init];
+  self.window.rootViewController = conversationsVC;
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-  
-  self.window.rootViewController = conversationVC;
     return YES;
 }
 
