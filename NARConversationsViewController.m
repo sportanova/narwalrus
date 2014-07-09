@@ -17,15 +17,21 @@
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
   
-//  [self fetchStuff];
-  
-  if(self) {
-    for (int i = 0; i < 5; i++) {
-      [[NARConversationStore sharedStore] createConversation];
-    }
-  }
+  [self fetchStuff];
 
   return self;
+}
+
+- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipients:(NSString *)recipients {
+  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithSubject:subject
+    recipients:recipients];
+  
+  NSInteger lastRow = [[[NARConversationStore sharedStore] allConversations] indexOfObject:newConversation];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+  
+  [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+
+  return newConversation;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -38,7 +44,7 @@
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
   NARConversation *conversation = conversations[indexPath.row];
   
-  cell.textLabel.text = [conversation description];
+  cell.textLabel.text = [conversation subject];
   
   return cell;
 }
@@ -59,13 +65,22 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-     NSLog(@"getting here data: %@", jsonArray);
-     NSDictionary *secondItem = [jsonArray objectAtIndex:1];
-     NSLog(@"secondItem: %@", secondItem);
-     NSString *subject = secondItem[@"subject"];
-     NSLog(@"subject: %@", subject);
+//     NSLog(@"getting here data: %@", jsonArray);
+//     NSDictionary *secondItem = [jsonArray objectAtIndex:1];
+//     NSLog(@"secondItem: %@", secondItem);
+//     NSString *subject = secondItem[@"subject"];
+//     NSLog(@"subject: %@", subject);
+     
      
      dispatch_async(dispatch_get_main_queue(), ^{
+       for(NSDictionary *conversationDict in jsonArray) {
+//         NSLog(@"conversation:%@", conversationDict);
+         NSString *subject = [conversationDict objectForKey:@"subject"];
+         NSString *recipients = [conversationDict objectForKey:@"recipients"];
+         NSLog(@"subject:%@", subject);
+         NSLog(@"recipients:%@", recipients);
+         [self addNewConversationWithSubject:subject recipients:recipients];
+       }
        
      });
    }];
