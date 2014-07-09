@@ -1,6 +1,8 @@
 #import "NARConversation.h"
 
 @implementation NARConversation
+@synthesize subject = _subject;
+@synthesize recipients = _recipients;
 
 + (instancetype)createConversationWithSubject:(NSString *)subject recipients:(NSString *)recipients {
   NARConversation *newConversation = [[self alloc] initWithConversationSubject:subject recipients:recipients];
@@ -11,15 +13,11 @@
   self = [super init];
   
   if (self) {
-    _subject = subject;
-    _recipients = recipients;
+    self.subject = subject;
+    self.recipients = recipients;
   }
   
   return self;
-}
-
-- (NSString *)subject {
-  return _subject;
 }
 
 @end

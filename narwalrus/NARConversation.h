@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
 
 @interface NARConversation : NSObject
-{
-    NSString *_subject;
-    NSString *_recipients;
-}
+@property NSString* subject;
+@property NSString* recipients;
 
 + (instancetype)createConversationWithSubject:(NSString *)subject recipients:(NSString *)recipients;
 
