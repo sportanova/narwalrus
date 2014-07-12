@@ -9,6 +9,7 @@
 #import "NARConversationsViewController.h"
 #import "NARConversationStore.h"
 #import "NARConversation.h"
+#import "NAREmailsViewController.h"
 
 @implementation NARConversationsViewController
 - (instancetype)init {
@@ -20,6 +21,16 @@
   [self fetchStuff];
 
   return self;
+}
+
+// on tap, show emails
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
+  NARConversation *conversation = conversations[indexPath.row];
+  
+  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithConversation:conversation];
+  emailsVC.conversation = conversation;
+  [self.navigationController pushViewController:emailsVC animated:YES];
 }
 
 - (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipients:(NSString *)recipients {
@@ -77,8 +88,8 @@
 //         NSLog(@"conversation:%@", conversationDict);
          NSString *subject = [conversationDict objectForKey:@"subject"];
          NSString *recipients = [conversationDict objectForKey:@"recipients"];
-         NSLog(@"subject:%@", subject);
-         NSLog(@"recipients:%@", recipients);
+//         NSLog(@"subject:%@", subject);
+//         NSLog(@"recipients:%@", recipients);
          [self addNewConversationWithSubject:subject recipients:recipients];
        }
        

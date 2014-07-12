@@ -22,6 +22,9 @@
 		54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */; };
 		54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12C1966926900A6EEC3 /* NARConversation.m */; };
 		54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */; };
+		54B2B13B196EA8C400A6EEC3 /* NAREmailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */; };
+		54B2B13E196EA94C00A6EEC3 /* NAREmailStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */; };
+		54B2B141196EA9F700A6EEC3 /* NAREmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B140196EA9F700A6EEC3 /* NAREmail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,12 @@
 		54B2B12C1966926900A6EEC3 /* NARConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversation.m; sourceTree = "<group>"; };
 		54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationStore.h; sourceTree = "<group>"; };
 		54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationStore.m; sourceTree = "<group>"; };
+		54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmailsViewController.h; sourceTree = "<group>"; };
+		54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAREmailsViewController.m; sourceTree = "<group>"; };
+		54B2B13C196EA94C00A6EEC3 /* NAREmailStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmailStore.h; sourceTree = "<group>"; };
+		54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAREmailStore.m; sourceTree = "<group>"; };
+		54B2B13F196EA9F700A6EEC3 /* NAREmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmail.h; sourceTree = "<group>"; };
+		54B2B140196EA9F700A6EEC3 /* NAREmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAREmail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +95,12 @@
 		549A20C2195D33D400DDE088 = {
 			isa = PBXGroup;
 			children = (
+				54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */,
+				54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */,
 				54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */,
 				54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */,
+				54B2B13C196EA94C00A6EEC3 /* NAREmailStore.h */,
+				54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */,
 				54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */,
 				54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */,
 				549A20D4195D33D400DDE088 /* narwalrus */,
@@ -123,6 +136,8 @@
 				549A20DD195D33D500DDE088 /* NARAppDelegate.h */,
 				54B2B12B1966926900A6EEC3 /* NARConversation.h */,
 				54B2B12C1966926900A6EEC3 /* NARConversation.m */,
+				54B2B13F196EA9F700A6EEC3 /* NAREmail.h */,
+				54B2B140196EA9F700A6EEC3 /* NAREmail.m */,
 				549A20DE195D33D500DDE088 /* NARAppDelegate.m */,
 				549A20E0195D33D500DDE088 /* Images.xcassets */,
 				549A20D5195D33D500DDE088 /* Supporting Files */,
@@ -256,10 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */,
+				54B2B13B196EA8C400A6EEC3 /* NAREmailsViewController.m in Sources */,
 				54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */,
 				54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */,
 				549A20DB195D33D500DDE088 /* main.m in Sources */,
 				54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */,
+				54B2B141196EA9F700A6EEC3 /* NAREmail.m in Sources */,
+				54B2B13E196EA94C00A6EEC3 /* NAREmailStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

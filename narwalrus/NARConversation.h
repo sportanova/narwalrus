@@ -8,6 +8,5 @@
 
 // Designated initializer for NARConversation
 - (instancetype)initWithConversationSubject:(NSString *)name recipients:(NSString *)recipients;
-- (NSString *)subject;
 
 @end

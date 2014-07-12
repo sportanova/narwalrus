@@ -18,7 +18,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
   NARConversationsViewController *conversationsVC = [[NARConversationsViewController alloc] init];
-  self.window.rootViewController = conversationsVC;
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:conversationsVC];
+  
+  self.window.rootViewController = navController;
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
