@@ -7,22 +7,27 @@
 //
 
 #import "NAREmailsViewController.h"
+#import "NARConversationsViewController.h"
 #import "NAREmailStore.h"
 #import "NAREmail.h"
 #import "NARConversation.h"
 
 @implementation NAREmailsViewController
 @synthesize conversation = _conversation;
+@synthesize userId = _userId;
 
-- (instancetype)initWithConversation:(NARConversation *)conversation {
+- (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId{
   self = [super initWithStyle:UITableViewStylePlain];
   
   self.conversation = conversation;
+  self.userId = userId;
+  
+  NSLog(@"USERID: %@",self.userId);
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
-  
-  [self fetchEmailsWithUserId:@"" subject:@"" recipients:@""];
+
+  [self fetchEmailsWithUserId:self.userId subject:@"" recipients:@""];
   
   return self;
 }

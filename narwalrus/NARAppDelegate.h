@@ -11,5 +11,6 @@
 @interface NARAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, atomic) NSString *userId;
 
 @end

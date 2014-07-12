@@ -10,12 +10,16 @@
 #import "NARConversationsViewController.h"
 
 @implementation NARAppDelegate
+@synthesize userId = _userId;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //  NSBundle *appBundle = [NSBundle mainBundle];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  
+  self.userId = @"74a75e70-0345-11e4-93ed-cd9620d4d81f";
+  
     // Override point for customization after application launch.
   NARConversationsViewController *conversationsVC = [[NARConversationsViewController alloc] init];
   UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:conversationsVC];

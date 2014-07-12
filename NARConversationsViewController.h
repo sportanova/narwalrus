@@ -10,5 +10,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NARConversationsViewController : UITableViewController
-  @property(weak, atomic) NSURLSession *session;
+  @property(strong, atomic) NSURLSession *session;
+  @property(strong, atomic) NSString *userId;
 @end

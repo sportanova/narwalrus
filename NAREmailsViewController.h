@@ -14,6 +14,7 @@
 @interface NAREmailsViewController : UITableViewController
 @property(strong, atomic) NSURLSession *session;
 @property(strong,atomic) NARConversation *conversation;
+@property(strong,atomic) NSString *userId;
 
-- (instancetype)initWithConversation:(NARConversation *)conversation;
+- (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId;
 @end

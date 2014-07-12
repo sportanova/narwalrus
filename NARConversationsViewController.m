@@ -10,13 +10,18 @@
 #import "NARConversationStore.h"
 #import "NARConversation.h"
 #import "NAREmailsViewController.h"
+#import "NARAppDelegate.h"
 
 @implementation NARConversationsViewController
+@synthesize userId = _userId;
+
 - (instancetype)init {
   self = [super initWithStyle:UITableViewStylePlain];
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+  
+  self.userId = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId];
   
   [self fetchStuff];
 
@@ -28,7 +33,7 @@
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
   NARConversation *conversation = conversations[indexPath.row];
   
-  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithConversation:conversation];
+  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithConversation:conversation userId:self.userId];
   emailsVC.conversation = conversation;
   [self.navigationController pushViewController:emailsVC animated:YES];
 }
