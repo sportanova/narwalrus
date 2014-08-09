@@ -55,7 +55,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableConversationViewCell" forIndexPath:indexPath];
   
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
   NARConversation *conversation = conversations[indexPath.row];
@@ -68,7 +68,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableConversationViewCell"];
 }
 
 

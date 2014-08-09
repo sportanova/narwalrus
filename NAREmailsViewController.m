@@ -51,7 +51,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableEmailViewCell" forIndexPath:indexPath];
   
   NSArray *emails = [[NAREmailStore sharedStore] allEmails];
   NAREmail *email = emails[indexPath.row];
@@ -64,7 +64,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableEmailViewCell"];
 }
 
 
