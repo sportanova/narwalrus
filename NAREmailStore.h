@@ -12,6 +12,7 @@
 
 @interface NAREmailStore : NSObject
 @property (nonatomic, readonly) NSArray *allEmails;
+- (void)deleteStore;
 + (instancetype)sharedStore;
 - (NAREmail *)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients body:(NSString *)body;
 @end

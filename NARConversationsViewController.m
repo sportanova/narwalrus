@@ -23,7 +23,7 @@
   
   self.userId = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId];
   
-  [self fetchStuff];
+  [self fetchConversations];
 
   return self;
 }
@@ -72,9 +72,9 @@
 }
 
 
-- (void)fetchStuff
+- (void)fetchConversations
 {
-  NSString *requestString = @"http://localhost:8080/conversations/";
+  NSString *requestString = [NSString stringWithFormat:@"http://localhost:8080/conversations/%@", self.userId];
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   
@@ -92,7 +92,7 @@
        for(NSDictionary *conversationDict in jsonArray) {
 //         NSLog(@"conversation:%@", conversationDict);
          NSString *subject = [conversationDict objectForKey:@"subject"];
-         NSString *recipients = [conversationDict objectForKey:@"recipients"];
+         NSString *recipients = [conversationDict objectForKey:@"recipientsHash"];
 //         NSLog(@"subject:%@", subject);
 //         NSLog(@"recipients:%@", recipients);
          [self addNewConversationWithSubject:subject recipients:recipients];

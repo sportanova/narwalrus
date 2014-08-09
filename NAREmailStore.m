@@ -24,6 +24,10 @@
   return sharedStore;
 }
 
+- (void)deleteStore {
+  self.privateEmails = [[NSMutableArray alloc] init];
+}
+
 - (instancetype)init {
   @throw [NSException exceptionWithName:@"Singleton" reason:@"Use +[NAREmailStore sharedStore]" userInfo:nil];
   return nil;
