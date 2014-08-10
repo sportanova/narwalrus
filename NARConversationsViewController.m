@@ -56,9 +56,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UIColor *separatorColor = [UIColor colorWithRed:44.0/255.0 green:62.0/255.0 blue:80.0/255.0 alpha:1.0];
-  [self.tableView setSeparatorColor:separatorColor];
-
   NARConversationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NARConversationCell" forIndexPath:indexPath];
   
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
@@ -74,7 +71,7 @@
   
 //  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableConversationViewCell"];
   UINib *nib = [UINib nibWithNibName:@"NARConversationCell" bundle:nil];
-  [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
   [self.tableView registerNib:nib forCellReuseIdentifier:@"NARConversationCell"];
 }
