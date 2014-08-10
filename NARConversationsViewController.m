@@ -62,6 +62,7 @@
   NARConversation *conversation = conversations[indexPath.row];
   
   cell.subjectLabel.text = [conversation subject];
+  cell.subjectLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
   
   return cell;
 }

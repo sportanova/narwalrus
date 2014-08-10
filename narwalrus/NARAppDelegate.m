@@ -24,6 +24,16 @@
   NARConversationsViewController *conversationsVC = [[NARConversationsViewController alloc] init];
   UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:conversationsVC];
   
+//  for (NSString* family in [UIFont familyNames])
+//  {
+//    NSLog(@"%@", family);
+//    
+//    for (NSString* name in [UIFont fontNamesForFamilyName: family])
+//    {
+//      NSLog(@"  %@", name);
+//    }
+//  }
+  
   self.window.rootViewController = navController;
 
     self.window.backgroundColor = [UIColor whiteColor];

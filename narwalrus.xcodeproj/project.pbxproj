@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5409CBD11995B7E300D95ECE /* NARConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5409CBD01995B7E300D95ECE /* NARConversationCell.m */; };
 		540DC3901995C16B00005AEC /* NARConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 540DC38F1995C16B00005AEC /* NARConversationCell.xib */; };
+		540DC39419970EDC00005AEC /* Franchise-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 540DC39319970E1800005AEC /* Franchise-Bold.otf */; };
+		54382468199716FB00376A10 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54382466199716CF00376A10 /* Montserrat-Bold.ttf */; };
+		54382469199716FB00376A10 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54382467199716CF00376A10 /* Montserrat-Regular.ttf */; };
 		549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
 		549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D0195D33D400DDE088 /* CoreGraphics.framework */; };
 		549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
@@ -43,6 +46,9 @@
 		5409CBCF1995B7E300D95ECE /* NARConversationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationCell.h; sourceTree = "<group>"; };
 		5409CBD01995B7E300D95ECE /* NARConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationCell.m; sourceTree = "<group>"; };
 		540DC38F1995C16B00005AEC /* NARConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARConversationCell.xib; sourceTree = "<group>"; };
+		540DC39319970E1800005AEC /* Franchise-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Franchise-Bold.otf"; sourceTree = "<group>"; };
+		54382466199716CF00376A10 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "resources/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		54382467199716CF00376A10 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "resources/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		549A20CB195D33D400DDE088 /* narwalrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = narwalrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549A20CE195D33D400DDE088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		549A20D0195D33D400DDE088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +103,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		540DC39119970D3200005AEC /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				540DC39219970D3C00005AEC /* fonts */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		540DC39219970D3C00005AEC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				54382466199716CF00376A10 /* Montserrat-Bold.ttf */,
+				54382467199716CF00376A10 /* Montserrat-Regular.ttf */,
+				540DC39319970E1800005AEC /* Franchise-Bold.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		549A20C2195D33D400DDE088 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +165,7 @@
 		549A20D4195D33D400DDE088 /* narwalrus */ = {
 			isa = PBXGroup;
 			children = (
+				540DC39119970D3200005AEC /* resources */,
 				549A20DD195D33D500DDE088 /* NARAppDelegate.h */,
 				54B2B12B1966926900A6EEC3 /* NARConversation.h */,
 				54B2B12C1966926900A6EEC3 /* NARConversation.m */,
@@ -258,8 +283,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54382469199716FB00376A10 /* Montserrat-Regular.ttf in Resources */,
+				54382468199716FB00376A10 /* Montserrat-Bold.ttf in Resources */,
 				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,
 				540DC3901995C16B00005AEC /* NARConversationCell.xib in Resources */,
+				540DC39419970EDC00005AEC /* Franchise-Bold.otf in Resources */,
 				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
