@@ -11,6 +11,7 @@
 #import "NARConversation.h"
 #import "NAREmailsViewController.h"
 #import "NARAppDelegate.h"
+#import "NARConversationCell.h"
 
 @implementation NARConversationsViewController
 @synthesize userId = _userId;
@@ -55,12 +56,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableConversationViewCell" forIndexPath:indexPath];
+  UIColor *separatorColor = [UIColor colorWithRed:44.0/255.0 green:62.0/255.0 blue:80.0/255.0 alpha:1.0];
+  [self.tableView setSeparatorColor:separatorColor];
+
+  NARConversationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NARConversationCell" forIndexPath:indexPath];
   
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
   NARConversation *conversation = conversations[indexPath.row];
   
-  cell.textLabel.text = [conversation subject];
+  cell.subjectLabel.text = [conversation subject];
   
   return cell;
 }
@@ -68,7 +72,11 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableConversationViewCell"];
+//  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableConversationViewCell"];
+  UINib *nib = [UINib nibWithNibName:@"NARConversationCell" bundle:nil];
+  [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+  
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"NARConversationCell"];
 }
 
 

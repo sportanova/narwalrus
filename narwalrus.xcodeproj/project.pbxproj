@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5409CBD11995B7E300D95ECE /* NARConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5409CBD01995B7E300D95ECE /* NARConversationCell.m */; };
+		540DC3901995C16B00005AEC /* NARConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 540DC38F1995C16B00005AEC /* NARConversationCell.xib */; };
 		549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
 		549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D0195D33D400DDE088 /* CoreGraphics.framework */; };
 		549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5409CBCF1995B7E300D95ECE /* NARConversationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationCell.h; sourceTree = "<group>"; };
+		5409CBD01995B7E300D95ECE /* NARConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationCell.m; sourceTree = "<group>"; };
+		540DC38F1995C16B00005AEC /* NARConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARConversationCell.xib; sourceTree = "<group>"; };
 		549A20CB195D33D400DDE088 /* narwalrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = narwalrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549A20CE195D33D400DDE088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		549A20D0195D33D400DDE088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,6 +100,9 @@
 		549A20C2195D33D400DDE088 = {
 			isa = PBXGroup;
 			children = (
+				540DC38F1995C16B00005AEC /* NARConversationCell.xib */,
+				5409CBCF1995B7E300D95ECE /* NARConversationCell.h */,
+				5409CBD01995B7E300D95ECE /* NARConversationCell.m */,
 				54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */,
 				54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */,
 				54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */,
@@ -251,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,
+				540DC3901995C16B00005AEC /* NARConversationCell.xib in Resources */,
 				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +285,7 @@
 				54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */,
 				549A20DB195D33D500DDE088 /* main.m in Sources */,
 				54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */,
+				5409CBD11995B7E300D95ECE /* NARConversationCell.m in Sources */,
 				54B2B141196EA9F700A6EEC3 /* NAREmail.m in Sources */,
 				54B2B13E196EA94C00A6EEC3 /* NAREmailStore.m in Sources */,
 			);
