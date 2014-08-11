@@ -12,6 +12,7 @@
 		540DC39419970EDC00005AEC /* Franchise-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 540DC39319970E1800005AEC /* Franchise-Bold.otf */; };
 		54382468199716FB00376A10 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54382466199716CF00376A10 /* Montserrat-Bold.ttf */; };
 		54382469199716FB00376A10 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54382467199716CF00376A10 /* Montserrat-Regular.ttf */; };
+		5438246B199724B600376A10 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5438246A199724B500376A10 /* Bariol_Regular.otf */; };
 		549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
 		549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D0195D33D400DDE088 /* CoreGraphics.framework */; };
 		549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
@@ -49,6 +50,7 @@
 		540DC39319970E1800005AEC /* Franchise-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Franchise-Bold.otf"; sourceTree = "<group>"; };
 		54382466199716CF00376A10 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "resources/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		54382467199716CF00376A10 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "resources/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		5438246A199724B500376A10 /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
 		549A20CB195D33D400DDE088 /* narwalrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = narwalrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549A20CE195D33D400DDE088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		549A20D0195D33D400DDE088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -114,6 +116,7 @@
 		540DC39219970D3C00005AEC /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5438246A199724B500376A10 /* Bariol_Regular.otf */,
 				54382466199716CF00376A10 /* Montserrat-Bold.ttf */,
 				54382467199716CF00376A10 /* Montserrat-Regular.ttf */,
 				540DC39319970E1800005AEC /* Franchise-Bold.otf */,
@@ -283,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5438246B199724B600376A10 /* Bariol_Regular.otf in Resources */,
 				54382469199716FB00376A10 /* Montserrat-Regular.ttf in Resources */,
 				54382468199716FB00376A10 /* Montserrat-Bold.ttf in Resources */,
 				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,

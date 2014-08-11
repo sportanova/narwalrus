@@ -57,6 +57,7 @@
   NAREmail *email = emails[indexPath.row];
   
   cell.textLabel.text = email.body;
+  cell.textLabel.font = [UIFont fontWithName:@"Bariol" size:14.0f];
   
   return cell;
 }
