@@ -5,10 +5,10 @@
 @property NSString* recipients;
 @property NSString* recipientsHash;
 
-+ (instancetype)createConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)hash
++ (instancetype)createConversationWithRecipientsHash:(NSString *)hash
   recipients:(NSString *)recipients;
 
 // Designated initializer for NARConversation
-- (instancetype)initWithConversationSubject:(NSString *)name recipientsHash:(NSString *)hash recipients:(NSString *)recipients;
+- (instancetype)initConversationWithRecipientsHash:(NSString *)hash recipients:(NSString *)recipients;
 
 @end

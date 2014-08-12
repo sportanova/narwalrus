@@ -40,8 +40,7 @@
 }
 
 - (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients {
-  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithSubject:subject
-  recipientsHash:recipientsHash recipients:recipients];
+  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients];
   
   NSInteger lastRow = [[[NARConversationStore sharedStore] allConversations] indexOfObject:newConversation];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
