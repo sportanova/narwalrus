@@ -36,8 +36,8 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="emailCountLabel" destination="cvu-eU-5rN" id="G8V-ZV-MCv"/>
-                <outlet property="subjectLabel" destination="uZm-29-PU1" id="aP4-AD-A21"/>
+                <outlet property="emailCountLabel" destination="uZm-29-PU1" id="zAb-ZB-kjE"/>
+                <outlet property="recipientsLabel" destination="uZm-29-PU1" id="ozn-Ns-1ps"/>
             </connections>
         </tableViewCell>
     </objects>

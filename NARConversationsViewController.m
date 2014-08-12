@@ -39,9 +39,9 @@
   [self.navigationController pushViewController:emailsVC animated:YES];
 }
 
-- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipients:(NSString *)recipients {
+- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients {
   NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithSubject:subject
-    recipients:recipients];
+  recipientsHash:recipientsHash recipients:recipients];
   
   NSInteger lastRow = [[[NARConversationStore sharedStore] allConversations] indexOfObject:newConversation];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -61,8 +61,8 @@
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
   NARConversation *conversation = conversations[indexPath.row];
   
-  cell.subjectLabel.text = [conversation subject];
-  cell.subjectLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
+  cell.recipientsLabel.text = [conversation recipients];
+  cell.recipientsLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
   
   return cell;
 }
@@ -87,7 +87,7 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//     NSLog(@"getting here data: %@", jsonArray);
+     NSLog(@"getting here data: %@", jsonArray);
 //     NSDictionary *secondItem = [jsonArray objectAtIndex:1];
 //     NSLog(@"secondItem: %@", secondItem);
 //     NSString *subject = secondItem[@"subject"];
@@ -98,12 +98,13 @@
        for(NSDictionary *conversationDict in jsonArray) {
 //         NSLog(@"conversation:%@", conversationDict);
          NSString *subject = [conversationDict objectForKey:@"subject"];
-         NSString *recipients = [conversationDict objectForKey:@"recipientsHash"];
-//         NSLog(@"subject:%@", subject);
-//         NSLog(@"recipients:%@", recipients);
-         [self addNewConversationWithSubject:subject recipients:recipients];
+         NSString *recipientsHash = [conversationDict objectForKey:@"recipientsHash"];
+
+         NSArray *recipientsJSON = [conversationDict objectForKey:@"recipients"];
+         NSString * recipients = [[recipientsJSON valueForKey:@"description"] componentsJoinedByString:@", "];
+
+         [self addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients];
        }
-       
      });
    }];
   [dataTask resume];

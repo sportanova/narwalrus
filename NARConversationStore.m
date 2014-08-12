@@ -37,8 +37,9 @@
   return self;
 }
 
-- (NARConversation *)createConversationWithSubject:(NSString *)subject recipients:(NSString *)recipients {
-  NARConversation *conversation = [NARConversation createConversationWithSubject:subject recipients:recipients];
+- (NARConversation *)createConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)hash
+  recipients:(NSString *)recipients {
+  NARConversation *conversation = [NARConversation createConversationWithSubject:subject recipientsHash:hash recipients:recipients];
   
   [self.privateConversations addObject:conversation];
   

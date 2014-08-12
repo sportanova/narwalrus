@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface NARConversationCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *subjectLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *emailCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recipientsLabel;
 
 @end
