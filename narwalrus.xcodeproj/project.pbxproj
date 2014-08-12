@@ -26,6 +26,7 @@
 		549A20F2195D33D500DDE088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 549A20F0195D33D500DDE088 /* InfoPlist.strings */; };
 		549A20F4195D33D500DDE088 /* narwalrusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 549A20F3195D33D500DDE088 /* narwalrusTests.m */; };
 		549CB414199A20BA0071EB70 /* NARTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB413199A20BA0071EB70 /* NARTopic.m */; };
+		549CB417199A27260071EB70 /* NARTopicStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB416199A27260071EB70 /* NARTopicStore.m */; };
 		54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */; };
 		54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12C1966926900A6EEC3 /* NARConversation.m */; };
 		54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */; };
@@ -70,6 +71,8 @@
 		549A20F3195D33D500DDE088 /* narwalrusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = narwalrusTests.m; sourceTree = "<group>"; };
 		549CB412199A20BA0071EB70 /* NARTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARTopic.h; sourceTree = "<group>"; };
 		549CB413199A20BA0071EB70 /* NARTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARTopic.m; sourceTree = "<group>"; };
+		549CB415199A27260071EB70 /* NARTopicStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARTopicStore.h; sourceTree = "<group>"; };
+		549CB416199A27260071EB70 /* NARTopicStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARTopicStore.m; sourceTree = "<group>"; };
 		54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationsViewController.h; sourceTree = "<group>"; };
 		54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationsViewController.m; sourceTree = "<group>"; };
 		54B2B12B1966926900A6EEC3 /* NARConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversation.h; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */,
 				54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */,
 				54B2B13C196EA94C00A6EEC3 /* NAREmailStore.h */,
+				549CB415199A27260071EB70 /* NARTopicStore.h */,
+				549CB416199A27260071EB70 /* NARTopicStore.m */,
 				54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */,
 				54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */,
 				54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */,
@@ -324,6 +329,7 @@
 				54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */,
 				5409CBD11995B7E300D95ECE /* NARConversationCell.m in Sources */,
 				54B2B141196EA9F700A6EEC3 /* NAREmail.m in Sources */,
+				549CB417199A27260071EB70 /* NARTopicStore.m in Sources */,
 				54B2B13E196EA94C00A6EEC3 /* NAREmailStore.m in Sources */,
 				549CB414199A20BA0071EB70 /* NARTopic.m in Sources */,
 			);

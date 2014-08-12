@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface NARTopic : NSObject
+@property NSString* subject;
+@property int64_t threadId;
 
-+ (instancetype)createConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)hash
-                                   recipients:(NSString *)recipients;
++ (instancetype)createTopicWithSubject:(NSString *)subject threadId:(int64_t)id;
 
-// Designated initializer for NARConversation
-- (instancetype)initWithConversationSubject:(NSString *)name recipientsHash:(NSString *)hash recipients:(NSString *)recipients;
+// Designated initializer for NARTopic
+- (instancetype)initWithTopicSubject:(NSString *)subject threadId:(int64_t)id;
 
 @end
