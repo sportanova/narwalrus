@@ -11,7 +11,7 @@
 @class NARTopic;
 
 @interface NARTopicStore : NSObject
-@property (nonatomic, readonly) NSArray *allEmails;
+@property (nonatomic, readonly) NSArray *allTopics;
 - (void)deleteStore;
 + (instancetype)sharedStore;
 - (NARTopic *)createTopicWithSubject:(NSString *)subject threadId:(int64_t)id;

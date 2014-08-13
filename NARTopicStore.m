@@ -49,7 +49,7 @@
   return topic;
 }
 
-- (NSArray *)allEmails {
+- (NSArray *)allTopics {
   return self.privateTopics;
 }
 @end
