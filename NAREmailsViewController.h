@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class NARConversation;
+@class NARTopic;
 
 // don't want this to be a table
 @interface NAREmailsViewController : UITableViewController
 @property(strong, atomic) NSURLSession *session;
-@property(strong,atomic) NARConversation *conversation;
+@property(strong,atomic) NARTopic *topic;
 @property(strong,atomic) NSString *userId;
 
-- (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId;
+- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId;
 @end

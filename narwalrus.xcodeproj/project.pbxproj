@@ -28,6 +28,8 @@
 		549CB414199A20BA0071EB70 /* NARTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB413199A20BA0071EB70 /* NARTopic.m */; };
 		549CB417199A27260071EB70 /* NARTopicStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB416199A27260071EB70 /* NARTopicStore.m */; };
 		549CB420199B21300071EB70 /* NARTopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB41F199B21300071EB70 /* NARTopicsTableViewController.m */; };
+		549CB422199B2B0B0071EB70 /* NARTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549CB421199B2B0B0071EB70 /* NARTopicCell.xib */; };
+		549CB425199B2BAA0071EB70 /* NARTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB424199B2BAA0071EB70 /* NARTopicCell.m */; };
 		54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */; };
 		54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12C1966926900A6EEC3 /* NARConversation.m */; };
 		54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */; };
@@ -76,6 +78,9 @@
 		549CB416199A27260071EB70 /* NARTopicStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARTopicStore.m; sourceTree = "<group>"; };
 		549CB41E199B21300071EB70 /* NARTopicsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARTopicsTableViewController.h; sourceTree = "<group>"; };
 		549CB41F199B21300071EB70 /* NARTopicsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARTopicsTableViewController.m; sourceTree = "<group>"; };
+		549CB421199B2B0B0071EB70 /* NARTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARTopicCell.xib; sourceTree = "<group>"; };
+		549CB423199B2BAA0071EB70 /* NARTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARTopicCell.h; sourceTree = "<group>"; };
+		549CB424199B2BAA0071EB70 /* NARTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARTopicCell.m; sourceTree = "<group>"; };
 		54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationsViewController.h; sourceTree = "<group>"; };
 		54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationsViewController.m; sourceTree = "<group>"; };
 		54B2B12B1966926900A6EEC3 /* NARConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversation.h; sourceTree = "<group>"; };
@@ -139,6 +144,9 @@
 				549CB41E199B21300071EB70 /* NARTopicsTableViewController.h */,
 				549CB41F199B21300071EB70 /* NARTopicsTableViewController.m */,
 				540DC38F1995C16B00005AEC /* NARConversationCell.xib */,
+				549CB421199B2B0B0071EB70 /* NARTopicCell.xib */,
+				549CB423199B2BAA0071EB70 /* NARTopicCell.h */,
+				549CB424199B2BAA0071EB70 /* NARTopicCell.m */,
 				5409CBCF1995B7E300D95ECE /* NARConversationCell.h */,
 				5409CBD01995B7E300D95ECE /* NARConversationCell.m */,
 				54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */,
@@ -302,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5438246B199724B600376A10 /* Bariol_Regular.otf in Resources */,
+				549CB422199B2B0B0071EB70 /* NARTopicCell.xib in Resources */,
 				54382469199716FB00376A10 /* Montserrat-Regular.ttf in Resources */,
 				54382468199716FB00376A10 /* Montserrat-Bold.ttf in Resources */,
 				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,
@@ -327,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */,
+				549CB425199B2BAA0071EB70 /* NARTopicCell.m in Sources */,
 				54B2B13B196EA8C400A6EEC3 /* NAREmailsViewController.m in Sources */,
 				54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */,
 				54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */,

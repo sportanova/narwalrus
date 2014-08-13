@@ -10,28 +10,29 @@
 #import "NARConversationsViewController.h"
 #import "NAREmailStore.h"
 #import "NAREmail.h"
+#import "NARTopic.h"
 #import "NARConversation.h"
 
 @implementation NAREmailsViewController
-@synthesize conversation = _conversation;
+@synthesize topic = _topic;
 @synthesize userId = _userId;
 
-- (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId{
+- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId {
   self = [super initWithStyle:UITableViewStylePlain];
   
-  self.conversation = conversation;
+  self.topic = topic;
   self.userId = userId;
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+  NSLog(@"EMAIL USERID: %@", self.userId);
 
-  [self fetchEmailsWithUserId:self.userId subject:conversation.subject recipientsHash:conversation.recipients];
+  [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId];
   
   return self;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-  NSLog(@"!!!!!!!!!!!! DISAPPEARING");
   [[NAREmailStore sharedStore] deleteStore];
 }
 
@@ -69,15 +70,11 @@
 }
 
 
-- (void)fetchEmailsWithUserId:(NSString *)userId subject:(NSString *)subject recipientsHash:(NSString *)recipients {
-
-  // use hash instead of encoding?
-  NSString *encodedString = [subject stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-  
-  NSString *requestString = [NSString stringWithFormat: @"http://localhost:8080/emails?userId=%@&subject=%@&recipientsHash=%@",
-    userId, encodedString, recipients];
+- (void)fetchEmailsWithUserId:(NSString *)userId threadId:(int64_t)threadId {
+  NSString *threadIdString = [NSString stringWithFormat:@"%zd", threadId];
+  NSLog(@"@@@@@@@@@@@@@@THREADID STRING: %@", threadIdString);
+  NSString *requestString = [NSString stringWithFormat: @"http://localhost:8080/emails/%@/%@", userId,threadIdString];
   NSLog(@"REQUEST STRING: %@", requestString);
-  NSLog(@"subject %@", subject);
 
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
@@ -85,7 +82,7 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//     NSLog(@"############ json: %@", jsonArray);
+     NSLog(@"############ EMAIL JSON: %@", jsonArray);
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *EmailDict in jsonArray) {
          //         NSLog(@"Email:%@", EmailDict);

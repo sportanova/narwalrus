@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class NARConversation;
+
 @interface NARTopicsTableViewController : UITableViewController
 @property(strong, atomic) NSURLSession *session;
 @property(strong, atomic) NSString *userId;
+@property(strong,atomic) NARConversation *conversation;
+
+- (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId;
+
 @end

@@ -9,7 +9,7 @@
 #import "NARConversationsViewController.h"
 #import "NARConversationStore.h"
 #import "NARConversation.h"
-#import "NAREmailsViewController.h"
+#import "NARTopicsTableViewController.h"
 #import "NARAppDelegate.h"
 #import "NARConversationCell.h"
 
@@ -34,9 +34,9 @@
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
   NARConversation *conversation = conversations[indexPath.row];
   
-  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithConversation:conversation userId:self.userId];
-  emailsVC.conversation = conversation;
-  [self.navigationController pushViewController:emailsVC animated:YES];
+  NARTopicsTableViewController *topicsVC = [[NARTopicsTableViewController alloc] initWithConversation:conversation userId:self.userId];
+  topicsVC.conversation = conversation;
+  [self.navigationController pushViewController:topicsVC animated:YES];
 }
 
 - (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients {
@@ -69,7 +69,8 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-//  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableConversationViewCell"];
+  self.view.backgroundColor = [UIColor colorWithRed:108.0f/255.0f green:122.0f/255.0f blue:137.0f/255.0f alpha:1.0f];
+
   UINib *nib = [UINib nibWithNibName:@"NARConversationCell" bundle:nil];
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
@@ -84,9 +85,9 @@
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
-   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-     NSLog(@"getting here data: %@", jsonArray);
+//     NSLog(@"getting here data: %@", jsonArray);
 //     NSDictionary *secondItem = [jsonArray objectAtIndex:1];
 //     NSLog(@"secondItem: %@", secondItem);
 //     NSString *subject = secondItem[@"subject"];

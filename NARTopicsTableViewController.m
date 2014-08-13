@@ -9,33 +9,52 @@
 #import "NARTopicsTableViewController.h"
 #import "NARTopicStore.h"
 #import "NARTopic.h"
+#import "NARConversation.h"
 #import "NAREmailsViewController.h"
 #import "NARAppDelegate.h"
-#import "NARConversationCell.h"
+#import "NARTopicCell.h"
 
 @implementation NARTopicsTableViewController
 @synthesize userId = _userId;
 
-- (instancetype)init {
+- (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId{
   self = [super initWithStyle:UITableViewStylePlain];
+  
+  // TODO: reference cycle?
+  self.conversation = conversation;
+  self.userId = userId;
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
   
-  // TODO: reference cycle?
-  self.userId = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId];
-  
-  [self fetchConversations];
+  [self fetchTopicsWithUserId:self.userId recipientsHash:conversation.recipientsHash];
   
   return self;
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+  [[NARTopicStore sharedStore] deleteStore];
+}
+
+//- (instancetype)init {
+//  self = [super initWithStyle:UITableViewStylePlain];
+//  
+//  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//  self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+//  
+//  // TODO: reference cycle?
+//  self.userId = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId];
+//  
+//  [self fetchConversations];
+//  
+//  return self;
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   NSArray *topics = [[NARTopicStore sharedStore] allTopics];
-  NARConversation *conversation = topics[indexPath.row];
-  
-  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithConversation:conversation userId:self.userId];
-  emailsVC.conversation = conversation;
+  NARTopic *topic = topics[indexPath.row];
+
+  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithTopic:topic userId:self.userId];
   [self.navigationController pushViewController:emailsVC animated:YES];
 }
 
@@ -55,13 +74,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  NARConversationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NARTopicCell" forIndexPath:indexPath];
+  NARTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NARTopicCell" forIndexPath:indexPath];
   
   NSArray *topics = [[NARTopicStore sharedStore] allTopics];
   NARTopic *topic = topics[indexPath.row];
   
-  cell.recipientsLabel.text = [topic subject];
-  cell.recipientsLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
+  cell.subjectLabel.text = [topic subject];
+  cell.subjectLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
   
   return cell;
 }
@@ -69,24 +88,25 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  //  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableConversationViewCell"];
-  UINib *nib = [UINib nibWithNibName:@"NARConversationCell" bundle:nil];
+  self.view.backgroundColor = [UIColor colorWithRed:108.0f/255.0f green:122.0f/255.0f blue:137.0f/255.0f alpha:1.0f];
+
+  UINib *nib = [UINib nibWithNibName:@"NARTopicCell" bundle:nil];
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
-  [self.tableView registerNib:nib forCellReuseIdentifier:@"NARConversationCell"];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"NARTopicCell"];
 }
 
 
-- (void)fetchConversations
+- (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash
 {
-  NSString *requestString = [NSString stringWithFormat:@"http://localhost:8080/conversations/%@", self.userId];
+  NSString *requestString = [NSString stringWithFormat:@"http://localhost:8080/topics/%@/%@", userId, hash];
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSLog(@"getting here data: %@", jsonArray);
+    NSLog(@"TOPIC DATA: %@", jsonArray);
      //     NSDictionary *secondItem = [jsonArray objectAtIndex:1];
      //     NSLog(@"secondItem: %@", secondItem);
      //     NSString *subject = secondItem[@"subject"];
@@ -95,11 +115,13 @@
      
     dispatch_async(dispatch_get_main_queue(), ^{
       for(NSDictionary *topicDict in jsonArray) {
-         //         NSLog(@"conversation:%@", conversationDict);
         NSString *subject = [topicDict objectForKey:@"subject"];
-        NSString *threadId = [topicDict objectForKey:@"threadId"]; // need to make int64
+        NSString *threadIdString = [topicDict objectForKey:@"threadId"];
+        NSLog(@"############ threadIDString %@", threadIdString);
+        int64_t threadId = [threadIdString longLongValue];
+        NSLog(@"############ threadID64.... %tu", threadId);
         
-        [self addNewTopicWithSubject:subject threadId:44];
+        [self addNewTopicWithSubject:subject threadId:threadId];
       }
     });
   }];

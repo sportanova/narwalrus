@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NARTopicCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *subjectLabel;
 
 @end
