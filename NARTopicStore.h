@@ -14,5 +14,5 @@
 @property (nonatomic, readonly) NSArray *allTopics;
 - (void)deleteStore;
 + (instancetype)sharedStore;
-- (NARTopic *)createTopicWithSubject:(NSString *)subject threadId:(int64_t)id;
+- (NARTopic *)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId;
 @end

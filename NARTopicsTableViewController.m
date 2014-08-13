@@ -58,7 +58,7 @@
   [self.navigationController pushViewController:emailsVC animated:YES];
 }
 
-- (NARTopic *)addNewTopicWithSubject:(NSString *)subject threadId:(int64_t)threadId {
+- (NARTopic *)addNewTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId {
   NARTopic *newTopic = [[NARTopicStore sharedStore] createTopicWithSubject:subject threadId:threadId];
   
   NSInteger lastRow = [[[NARTopicStore sharedStore] allTopics] indexOfObject:newTopic];
@@ -116,10 +116,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
       for(NSDictionary *topicDict in jsonArray) {
         NSString *subject = [topicDict objectForKey:@"subject"];
-        NSString *threadIdString = [topicDict objectForKey:@"threadId"];
-        NSLog(@"############ threadIDString %@", threadIdString);
-        int64_t threadId = [threadIdString longLongValue];
-        NSLog(@"############ threadID64.... %tu", threadId);
+        NSString *threadId = [topicDict objectForKey:@"threadId"];
+        NSLog(@"############ threadIDString %@", threadId);
         
         [self addNewTopicWithSubject:subject threadId:threadId];
       }

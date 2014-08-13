@@ -41,8 +41,8 @@
   return self;
 }
 
-- (NARTopic *)createTopicWithSubject:(NSString *)subject threadId:(int64_t)id {
-  NARTopic *topic = [NARTopic createTopicWithSubject:subject threadId:id];
+- (NARTopic *)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId {
+  NARTopic *topic = [NARTopic createTopicWithSubject:subject threadId:threadId];
   
   [self.privateTopics addObject:topic];
   

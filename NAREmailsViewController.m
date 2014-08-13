@@ -70,10 +70,8 @@
 }
 
 
-- (void)fetchEmailsWithUserId:(NSString *)userId threadId:(int64_t)threadId {
-  NSString *threadIdString = [NSString stringWithFormat:@"%zd", threadId];
-  NSLog(@"@@@@@@@@@@@@@@THREADID STRING: %@", threadIdString);
-  NSString *requestString = [NSString stringWithFormat: @"http://localhost:8080/emails/%@/%@", userId,threadIdString];
+- (void)fetchEmailsWithUserId:(NSString *)userId threadId:(NSString *)threadId {
+  NSString *requestString = [NSString stringWithFormat: @"http://localhost:8080/emails/%@/%@", userId,threadId];
   NSLog(@"REQUEST STRING: %@", requestString);
 
   NSURL *url = [NSURL URLWithString:requestString];

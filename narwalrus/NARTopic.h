@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface NARTopic : NSObject
-@property NSString* subject;
-@property int64_t threadId;
+@property NSString *subject;
+@property NSString *threadId;
 
-+ (instancetype)createTopicWithSubject:(NSString *)subject threadId:(int64_t)id;
++ (instancetype)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId;
 
 // Designated initializer for NARTopic
-- (instancetype)initWithTopicSubject:(NSString *)subject threadId:(int64_t)id;
+- (instancetype)initWithTopicSubject:(NSString *)subject threadId:(NSString *)threadId;
 
 @end
