@@ -35,7 +35,7 @@
   NARConversation *conversation = conversations[indexPath.row];
   
   NARTopicsTableViewController *topicsVC = [[NARTopicsTableViewController alloc] initWithConversation:conversation userId:self.userId];
-  topicsVC.conversation = conversation;
+
   [self.navigationController pushViewController:topicsVC animated:YES];
 }
 
@@ -87,16 +87,9 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//     NSLog(@"getting here data: %@", jsonArray);
-//     NSDictionary *secondItem = [jsonArray objectAtIndex:1];
-//     NSLog(@"secondItem: %@", secondItem);
-//     NSString *subject = secondItem[@"subject"];
-//     NSLog(@"subject: %@", subject);
-     
      
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *conversationDict in jsonArray) {
-//         NSLog(@"conversation:%@", conversationDict);
          NSString *subject = [conversationDict objectForKey:@"subject"];
          NSString *recipientsHash = [conversationDict objectForKey:@"recipientsHash"];
 

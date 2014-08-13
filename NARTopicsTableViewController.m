@@ -16,6 +16,7 @@
 
 @implementation NARTopicsTableViewController
 @synthesize userId = _userId;
+@synthesize conversation = _conversation;
 
 - (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId{
   self = [super initWithStyle:UITableViewStylePlain];
@@ -33,22 +34,12 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-  [[NARTopicStore sharedStore] deleteStore];
+  if ([self.navigationController.viewControllers indexOfObject:self]==0) {
+    [[NARTopicStore sharedStore] deleteStore];
+  }
+  
+  [super viewDidDisappear:animated];
 }
-
-//- (instancetype)init {
-//  self = [super initWithStyle:UITableViewStylePlain];
-//  
-//  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-//  self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
-//  
-//  // TODO: reference cycle?
-//  self.userId = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId];
-//  
-//  [self fetchConversations];
-//  
-//  return self;
-//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   NSArray *topics = [[NARTopicStore sharedStore] allTopics];
@@ -97,8 +88,7 @@
 }
 
 
-- (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash
-{
+- (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash {
   NSString *requestString = [NSString stringWithFormat:@"http://localhost:8080/topics/%@/%@", userId, hash];
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
@@ -106,18 +96,11 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSLog(@"TOPIC DATA: %@", jsonArray);
-     //     NSDictionary *secondItem = [jsonArray objectAtIndex:1];
-     //     NSLog(@"secondItem: %@", secondItem);
-     //     NSString *subject = secondItem[@"subject"];
-     //     NSLog(@"subject: %@", subject);
-     
      
     dispatch_async(dispatch_get_main_queue(), ^{
       for(NSDictionary *topicDict in jsonArray) {
         NSString *subject = [topicDict objectForKey:@"subject"];
         NSString *threadId = [topicDict objectForKey:@"threadId"];
-        NSLog(@"############ threadIDString %@", threadId);
         
         [self addNewTopicWithSubject:subject threadId:threadId];
       }
