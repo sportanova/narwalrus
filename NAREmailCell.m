@@ -10,6 +10,13 @@
 
 @implementation NAREmailCell
 
+- (void)configureCellWithBody:(NSString *)body
+{
+  self.bodyLabel.text = body;
+  self.bodyLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
+//  [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+}
+
 - (void)awakeFromNib
 {
     // Initialization code

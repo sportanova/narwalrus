@@ -14,11 +14,16 @@
 #import "NARConversation.h"
 #import "NAREmailCell.h"
 
+@interface NAREmailsViewController()
+@property (nonatomic, strong) NAREmailCell *prototypeCell;
+@end
+
 @implementation NAREmailsViewController
 @synthesize topic = _topic;
 @synthesize userId = _userId;
 
 - (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId {
+//  [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
   self = [super initWithStyle:UITableViewStylePlain];
   
   self.topic = topic;
@@ -30,6 +35,33 @@
   [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId];
   
   return self;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self.prototypeCell configureCellWithBody:[[self getEmailAtIndexPath:indexPath] body]];
+  [self.prototypeCell layoutIfNeeded];
+//  NSString *bodyText = self.prototypeCell.bodyLabel.text;
+//  NSLog(@"bodyText: %@", bodyText);
+  
+  CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+  NSLog(@"height: %f", size.height);
+  return size.height+1;
+}
+
+- (NAREmailCell *)prototypeCell
+{
+  if (!_prototypeCell)
+  {
+    _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"NAREmailCell"];
+  }
+  return _prototypeCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSLog(@"GETTING HERE");
+  return UITableViewAutomaticDimension;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -51,14 +83,21 @@
   return [[[NAREmailStore sharedStore] allEmails] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
-  
+- (NAREmail *)getEmailAtIndexPath:(NSIndexPath *)indexPath
+{
   NSArray *emails = [[NAREmailStore sharedStore] allEmails];
   NAREmail *email = emails[indexPath.row];
-  
-  cell.bodyLabel.text = [email body];
-  cell.bodyLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
+  return email;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
+  NAREmail *email = [self getEmailAtIndexPath:indexPath];
+  [cell configureCellWithBody:[email body]];
+//  NSLog(@"BODYLABEL: %@", cell.bodyLabel.text);
+  CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+  NSLog(@"CELL HEIGHT: %f", size.height);
+
   
   return cell;
 }

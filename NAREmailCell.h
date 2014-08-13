@@ -10,5 +10,6 @@
 
 @interface NAREmailCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
+- (void)configureCellWithBody:(NSString *)body;
 
 @end
