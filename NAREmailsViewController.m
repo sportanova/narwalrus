@@ -12,6 +12,7 @@
 #import "NAREmail.h"
 #import "NARTopic.h"
 #import "NARConversation.h"
+#import "NAREmailCell.h"
 
 @implementation NAREmailsViewController
 @synthesize topic = _topic;
@@ -51,13 +52,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableEmailViewCell" forIndexPath:indexPath];
+  NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   
   NSArray *emails = [[NAREmailStore sharedStore] allEmails];
   NAREmail *email = emails[indexPath.row];
   
-  cell.textLabel.text = email.body;
-  cell.textLabel.font = [UIFont fontWithName:@"Bariol" size:14.0f];
+  cell.bodyLabel.text = [email body];
+  cell.bodyLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
   
   return cell;
 }
@@ -65,7 +66,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableEmailViewCell"];
+  self.view.backgroundColor = [UIColor colorWithRed:108.0f/255.0f green:122.0f/255.0f blue:137.0f/255.0f alpha:1.0f];
+  
+  UINib *nib = [UINib nibWithNibName:@"NAREmailCell" bundle:nil];
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"NAREmailCell"];
 }
 
 

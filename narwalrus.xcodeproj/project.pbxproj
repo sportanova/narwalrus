@@ -30,6 +30,8 @@
 		549CB420199B21300071EB70 /* NARTopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB41F199B21300071EB70 /* NARTopicsTableViewController.m */; };
 		549CB422199B2B0B0071EB70 /* NARTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549CB421199B2B0B0071EB70 /* NARTopicCell.xib */; };
 		549CB425199B2BAA0071EB70 /* NARTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB424199B2BAA0071EB70 /* NARTopicCell.m */; };
+		549CB429199BC3B90071EB70 /* NAREmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549CB427199BC3B90071EB70 /* NAREmailCell.m */; };
+		549CB42A199BC3B90071EB70 /* NAREmailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549CB428199BC3B90071EB70 /* NAREmailCell.xib */; };
 		54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */; };
 		54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12C1966926900A6EEC3 /* NARConversation.m */; };
 		54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */; };
@@ -81,6 +83,9 @@
 		549CB421199B2B0B0071EB70 /* NARTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARTopicCell.xib; sourceTree = "<group>"; };
 		549CB423199B2BAA0071EB70 /* NARTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARTopicCell.h; sourceTree = "<group>"; };
 		549CB424199B2BAA0071EB70 /* NARTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARTopicCell.m; sourceTree = "<group>"; };
+		549CB426199BC3B90071EB70 /* NAREmailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmailCell.h; sourceTree = "<group>"; };
+		549CB427199BC3B90071EB70 /* NAREmailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAREmailCell.m; sourceTree = "<group>"; };
+		549CB428199BC3B90071EB70 /* NAREmailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NAREmailCell.xib; sourceTree = "<group>"; };
 		54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationsViewController.h; sourceTree = "<group>"; };
 		54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationsViewController.m; sourceTree = "<group>"; };
 		54B2B12B1966926900A6EEC3 /* NARConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversation.h; sourceTree = "<group>"; };
@@ -149,6 +154,9 @@
 				549CB424199B2BAA0071EB70 /* NARTopicCell.m */,
 				5409CBCF1995B7E300D95ECE /* NARConversationCell.h */,
 				5409CBD01995B7E300D95ECE /* NARConversationCell.m */,
+				549CB426199BC3B90071EB70 /* NAREmailCell.h */,
+				549CB427199BC3B90071EB70 /* NAREmailCell.m */,
+				549CB428199BC3B90071EB70 /* NAREmailCell.xib */,
 				54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */,
 				54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */,
 				54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */,
@@ -317,6 +325,7 @@
 				540DC3901995C16B00005AEC /* NARConversationCell.xib in Resources */,
 				540DC39419970EDC00005AEC /* Franchise-Bold.otf in Resources */,
 				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
+				549CB42A199BC3B90071EB70 /* NAREmailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				549CB429199BC3B90071EB70 /* NAREmailCell.m in Sources */,
 				549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */,
 				549CB425199B2BAA0071EB70 /* NARTopicCell.m in Sources */,
 				54B2B13B196EA8C400A6EEC3 /* NAREmailsViewController.m in Sources */,

@@ -87,7 +87,6 @@
   [self.tableView registerNib:nib forCellReuseIdentifier:@"NARTopicCell"];
 }
 
-
 - (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash {
   NSString *requestString = [NSString stringWithFormat:@"http://localhost:8080/topics/%@/%@", userId, hash];
   NSURL *url = [NSURL URLWithString:requestString];
