@@ -13,6 +13,7 @@
 @synthesize recipients = _recipients;
 @synthesize textBody = _textBody;
 @synthesize htmlBody = _htmlBody;
+@synthesize isFullSize = _isFullSize;
 
 + (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody {
@@ -29,6 +30,7 @@
     self.recipients = recipients;
     self.textBody = textBody;
     self.htmlBody = htmlBody;
+    self.isFullSize = false;
   }
   
   return self;

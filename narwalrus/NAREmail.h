@@ -14,6 +14,8 @@
 @property NSString* userId;
 @property NSString* textBody;
 @property NSString* htmlBody;
+@property (assign) NSInteger fullSize;
+@property (assign) bool isFullSize;
 
 + (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody;

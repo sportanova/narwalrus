@@ -13,24 +13,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="XHI-Yz-HrZ">
-                        <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-7H-R4U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XHI-Yz-HrZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="V8e-wR-2IZ"/>
-                    <constraint firstAttribute="trailing" secondItem="XHI-Yz-HrZ" secondAttribute="trailing" constant="10" id="fP3-HW-lDy"/>
-                    <constraint firstAttribute="bottom" secondItem="XHI-Yz-HrZ" secondAttribute="bottom" id="mF6-yq-dYO"/>
-                    <constraint firstItem="XHI-Yz-HrZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zrd-t7-rk9"/>
+                    <constraint firstItem="ES2-7H-R4U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="70N-P7-gc1"/>
+                    <constraint firstItem="ES2-7H-R4U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="V2K-TP-oqW"/>
+                    <constraint firstAttribute="bottom" secondItem="ES2-7H-R4U" secondAttribute="bottom" constant="1" id="kl0-oD-AEu"/>
+                    <constraint firstAttribute="trailing" secondItem="ES2-7H-R4U" secondAttribute="trailing" constant="1" id="mxW-0N-ScD"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.22745098039215686" green="0.54509803921568623" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="bodyLabel" destination="XHI-Yz-HrZ" id="Uqr-Jq-c7F"/>
+                <outlet property="webView" destination="ES2-7H-R4U" id="iKK-6I-hve"/>
             </connections>
         </tableViewCell>
     </objects>

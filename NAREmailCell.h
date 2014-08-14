@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NAREmailsViewController.h"
+#import "NAREmail.h"
 
-@interface NAREmailCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
+@interface NAREmailCell : UITableViewCell<UIWebViewDelegate, UIGestureRecognizerDelegate>
 - (void)configureCellWithBody:(NSString *)body;
-
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, atomic) UITableView *emailTableView;
+@property (weak, atomic) NAREmail *email;
+@property (assign, atomic) bool useFullSize;
 @end

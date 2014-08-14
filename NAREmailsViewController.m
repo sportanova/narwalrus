@@ -39,20 +39,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [self.prototypeCell configureCellWithBody:[[self getEmailAtIndexPath:indexPath] htmlBody]];
-  [self.prototypeCell layoutIfNeeded];
+  NAREmail *email = [self getEmailAtIndexPath:(NSIndexPath *)indexPath];
   
-  CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-  return size.height+1;
-}
-
-- (NAREmailCell *)prototypeCell
-{
-  if (!_prototypeCell)
-  {
-    _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"NAREmailCell"];
+  NSInteger height = 201;
+  if(email.isFullSize == true) {
+    height = email.fullSize;
   }
-  return _prototypeCell;
+  
+  return height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,6 +86,8 @@
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
   [cell configureCellWithBody:[email htmlBody]];
+  cell.emailTableView = self.tableView;   // memory leak
+  cell.email = email;
   
   return cell;
 }

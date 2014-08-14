@@ -10,7 +10,6 @@
 
 @class NARTopic;
 
-// don't want this to be a table
 @interface NAREmailsViewController : UITableViewController
 @property(strong, atomic) NSURLSession *session;
 @property(strong,atomic) NARTopic *topic;
