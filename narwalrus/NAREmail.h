@@ -12,12 +12,15 @@
 @property NSString* subject;
 @property NSString* recipients;
 @property NSString* userId;
-@property NSString* body;
+@property NSString* textBody;
+@property NSString* htmlBody;
 
-+ (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients body:(NSString *)body;
++ (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
+  htmlBody:(NSString *)htmlBody;
 
 // Designated initializer for NAREmail
-- (instancetype)initWithEmailSubject:(NSString *)name recipients:(NSString *)recipients body:(NSString *)body;
+- (instancetype)initWithEmailSubject:(NSString *)name recipients:(NSString *)recipients textBody:(NSString *)textBody
+  htmlBody:(NSString *)htmlBody;
 - (NSString *)subject;
 
 @end

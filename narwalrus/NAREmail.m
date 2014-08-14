@@ -11,20 +11,24 @@
 @implementation NAREmail
 @synthesize subject = _subject;
 @synthesize recipients = _recipients;
-@synthesize body = _body;
+@synthesize textBody = _textBody;
+@synthesize htmlBody = _htmlBody;
 
-+ (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients body:(NSString *)body {
-  NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipients:recipients body:body];
++ (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
+  htmlBody:(NSString *)htmlBody {
+  NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
   return newEmail;
 }
 
-- (instancetype)initWithEmailSubject:(NSString *)subject recipients:(NSString *)recipients body:(NSString *)body {
+- (instancetype)initWithEmailSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
+  htmlBody:(NSString *)htmlBody {
   self = [super init];
   
   if (self) {
     self.subject = subject;
     self.recipients = recipients;
-    self.body = body;
+    self.textBody = textBody;
+    self.htmlBody = htmlBody;
   }
   
   return self;

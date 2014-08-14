@@ -39,10 +39,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [self.prototypeCell configureCellWithBody:[[self getEmailAtIndexPath:indexPath] body]];
+  [self.prototypeCell configureCellWithBody:[[self getEmailAtIndexPath:indexPath] htmlBody]];
   [self.prototypeCell layoutIfNeeded];
-//  NSString *bodyText = self.prototypeCell.bodyLabel.text;
-//  NSLog(@"bodyText: %@", bodyText);
+  NSString *email = [[self getEmailAtIndexPath:indexPath] htmlBody];
+  NSLog(@"html: %@", email);
+  NSString *bodyText = self.prototypeCell.bodyLabel.text;
+  NSLog(@"bodyText: %@", bodyText);
   
   CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
   NSLog(@"height: %f", size.height);
@@ -68,8 +70,10 @@
   [[NAREmailStore sharedStore] deleteStore];
 }
 
-- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients body:(NSString *)body {
-  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipients:recipients body:body];
+- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
+  htmlBody:(NSString *)htmlBody
+{
+  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
   
   NSInteger lastRow = [[[NAREmailStore sharedStore] allEmails] indexOfObject:newEmail];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -93,7 +97,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
-  [cell configureCellWithBody:[email body]];
+  [cell configureCellWithBody:[email htmlBody]];
 //  NSLog(@"BODYLABEL: %@", cell.bodyLabel.text);
   CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
   NSLog(@"CELL HEIGHT: %f", size.height);
@@ -123,12 +127,15 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+     NSLog(@"EMAIL JSONARRAY: %@", jsonArray);
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *EmailDict in jsonArray) {
          NSString *subject = [EmailDict objectForKey:@"subject"];
          NSString *recipients = [EmailDict objectForKey:@"recipients"];
-         NSString *body = [EmailDict objectForKey:@"body"];
-         [self addNewEmailWithSubject:subject recipients:recipients body:body];
+         NSString *textBody = [EmailDict objectForKey:@"bodyText"];
+         NSString *htmlBody = [EmailDict objectForKey:@"bodyHtml"];
+         NSLog(@"HTMLBODY: %@", htmlBody);
+         [self addNewEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
        }
      });
    }];

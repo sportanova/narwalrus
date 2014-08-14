@@ -41,8 +41,10 @@
   return self;
 }
 
-- (NAREmail *)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients body:(NSString *)body {
-  NAREmail *email = [NAREmail createEmailWithSubject:subject recipients:recipients body:body];
+- (NAREmail *)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
+  htmlBody:(NSString *)htmlBody
+{
+  NAREmail *email = [NAREmail createEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
   
   [self.privateEmails addObject:email];
   

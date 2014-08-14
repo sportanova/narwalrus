@@ -18,7 +18,7 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
-  self.userId = @"59369ae1-4005-4e9c-be4b-76a208490555";
+  self.userId = @"9b11136c-aab5-43f4-a029-15ae4cc66637";
   
     // Override point for customization after application launch.
   NARConversationsViewController *conversationsVC = [[NARConversationsViewController alloc] init];
