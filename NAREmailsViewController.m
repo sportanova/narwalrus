@@ -41,13 +41,8 @@
 {
   [self.prototypeCell configureCellWithBody:[[self getEmailAtIndexPath:indexPath] htmlBody]];
   [self.prototypeCell layoutIfNeeded];
-  NSString *email = [[self getEmailAtIndexPath:indexPath] htmlBody];
-  NSLog(@"html: %@", email);
-  NSString *bodyText = self.prototypeCell.bodyLabel.text;
-  NSLog(@"bodyText: %@", bodyText);
   
   CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-  NSLog(@"height: %f", size.height);
   return size.height+1;
 }
 
@@ -62,7 +57,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSLog(@"GETTING HERE");
   return UITableViewAutomaticDimension;
 }
 
@@ -98,10 +92,6 @@
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
   [cell configureCellWithBody:[email htmlBody]];
-//  NSLog(@"BODYLABEL: %@", cell.bodyLabel.text);
-  CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-  NSLog(@"CELL HEIGHT: %f", size.height);
-
   
   return cell;
 }
@@ -127,14 +117,12 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-     NSLog(@"EMAIL JSONARRAY: %@", jsonArray);
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *EmailDict in jsonArray) {
          NSString *subject = [EmailDict objectForKey:@"subject"];
          NSString *recipients = [EmailDict objectForKey:@"recipients"];
-         NSString *textBody = [EmailDict objectForKey:@"bodyText"];
-         NSString *htmlBody = [EmailDict objectForKey:@"bodyHtml"];
-         NSLog(@"HTMLBODY: %@", htmlBody);
+         NSString *textBody = [EmailDict objectForKey:@"textBody"];
+         NSString *htmlBody = [EmailDict objectForKey:@"htmlBody"];
          [self addNewEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
        }
      });
