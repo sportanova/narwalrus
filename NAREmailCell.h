@@ -10,10 +10,18 @@
 #import "NAREmailsViewController.h"
 #import "NAREmail.h"
 
+@protocol EmailCellDelegate;
+
 @interface NAREmailCell : UITableViewCell<UIWebViewDelegate, UIGestureRecognizerDelegate>
 - (void)configureCellWithBody:(NSString *)body;
+@property (nonatomic, weak) id<EmailCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, atomic) UITableView *emailTableView;
 @property (weak, atomic) NAREmail *email;
 @property (assign, atomic) bool useFullSize;
+@end
+
+@protocol EmailCellDelegate <NSObject>
+
+- (void)refreshTable;
+
 @end

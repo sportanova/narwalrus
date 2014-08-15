@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NAREmailCell.h"
 
 @class NARTopic;
+@class NAREmailCell;
+@protocol EmailCellDelegate;
 
-@interface NAREmailsViewController : UITableViewController
+@interface NAREmailsViewController : UITableViewController<EmailCellDelegate>
 @property(strong, atomic) NSURLSession *session;
 @property(strong,atomic) NARTopic *topic;
 @property(strong,atomic) NSString *userId;

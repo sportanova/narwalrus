@@ -23,7 +23,6 @@
 @synthesize userId = _userId;
 
 - (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId {
-//  [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
   self = [super initWithStyle:UITableViewStylePlain];
   
   self.topic = topic;
@@ -42,11 +41,25 @@
   NAREmail *email = [self getEmailAtIndexPath:(NSIndexPath *)indexPath];
   
   NSInteger height = 201;
-  if(email.isFullSize == true) {
+  if(email.isFullSize == 1) {
     height = email.fullSize;
+    NSLog(@"FullSize: %d", email.isFullSize);
+  } else {
+    NSLog(@"0");
   }
   
   return height;
+}
+
+- (void)refreshTable
+{
+  NSIndexPath *durPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSArray *paths = [NSArray arrayWithObject:durPath];
+
+  [self.tableView beginUpdates];
+  [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:false];
+  [self.tableView endUpdates];
+  
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,8 +99,10 @@
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
   [cell configureCellWithBody:[email htmlBody]];
-  cell.emailTableView = self.tableView;   // memory leak
+//  cell.emailTableView = self.tableView;   // memory leak
   cell.email = email;
+  
+  cell.delegate = self;
   
   return cell;
 }

@@ -22,12 +22,24 @@
   self.webView.delegate = self;
 }
 
+- (void)refreshTable {
+  id<EmailCellDelegate> strongDelegate = self.delegate;
+  
+  // Our delegate method is optional, so we should
+  // check that the delegate implements it
+  if ([strongDelegate respondsToSelector:@selector(refreshTable)]) {
+    [strongDelegate refreshTable];
+  }
+}
+
 - (void)handleDoubleTap:(UITapGestureRecognizer *)sender
 {
+//  NSLog(@"TAP!!!"); // why would this throw an error... threads?
   if (sender.state == UIGestureRecognizerStateEnded) {
+    // sometimes there's a ghost event that does makes it go 2ce??
     self.email.isFullSize = !self.email.isFullSize;
-    NSLog(@"isFullSize: %d", self.email.isFullSize);
-    [self.emailTableView reloadData];
+
+    [self refreshTable];
   }
 }
 
@@ -48,8 +60,11 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
   CGSize size = CGSizeMake(webView.scrollView.contentSize.width,[[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue]);
+
+  webView.scrollView.scrollEnabled = false;
+//  webView.scalesPageToFit = TRUE;
   
-//  NSLog(@"FINISHED LOADING: %f", size.height);
+  NSLog(@"FINISHED LOADING: %f", size.height);
   self.email.fullSize = size.height;
 }
 
