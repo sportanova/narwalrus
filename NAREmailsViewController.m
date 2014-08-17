@@ -40,9 +40,9 @@
 {
   NAREmail *email = [self getEmailAtIndexPath:(NSIndexPath *)indexPath];
   
-  NSInteger height = 201;
+  NSInteger height = 100;
   if(email.isFullSize == 1) {
-    height = email.fullSize;
+    height = email.fullSize + 25;
     NSLog(@"FullSize: %d", email.isFullSize);
   } else {
     NSLog(@"0");
@@ -56,15 +56,7 @@
   NSIndexPath *durPath = [NSIndexPath indexPathForRow:0 inSection:0];
   NSArray *paths = [NSArray arrayWithObject:durPath];
 
-  [self.tableView beginUpdates];
   [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:false];
-  [self.tableView endUpdates];
-  
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  return UITableViewAutomaticDimension;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -99,7 +91,6 @@
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
   [cell configureCellWithBody:[email htmlBody]];
-//  cell.emailTableView = self.tableView;   // memory leak
   cell.email = email;
   
   cell.delegate = self;
