@@ -11,12 +11,20 @@
 
 @class NARTopic;
 @class NAREmailCell;
-@protocol EmailCellDelegate;
+
+@protocol EmailCellDelegate <NSObject>
+- (void)refreshTable;
+- (void)setLastResizeTime:(double)time;
+- (double)getLastResizeTime;
+//@property (assign, atomic) double lastResizeTime;
+@end
 
 @interface NAREmailsViewController : UITableViewController<EmailCellDelegate>
 @property(strong, atomic) NSURLSession *session;
 @property(strong,atomic) NARTopic *topic;
 @property(strong,atomic) NSString *userId;
+@property (assign, atomic) double lastResizeTime;
 
 - (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId;
+- (void)setLastResizeTime;
 @end

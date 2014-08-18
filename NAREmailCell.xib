@@ -13,20 +13,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-7H-R4U">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-7H-R4U">
+                        <rect key="frame" x="1" y="35" width="318" height="7"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </webView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ES2-7H-R4U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="70N-P7-gc1"/>
+                    <constraint firstItem="ES2-7H-R4U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="IIc-Ua-Lch"/>
                     <constraint firstItem="ES2-7H-R4U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="V2K-TP-oqW"/>
                     <constraint firstAttribute="bottom" secondItem="ES2-7H-R4U" secondAttribute="bottom" constant="1" id="kl0-oD-AEu"/>
                     <constraint firstAttribute="trailing" secondItem="ES2-7H-R4U" secondAttribute="trailing" constant="1" id="mxW-0N-ScD"/>
+                    <constraint firstItem="ES2-7H-R4U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="rJV-bC-0Zb"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.22745098039215686" green="0.54509803921568623" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.086274509803921567" green="0.62745098039215685" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="webView" destination="ES2-7H-R4U" id="iKK-6I-hve"/>
             </connections>

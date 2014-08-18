@@ -8,6 +8,7 @@
 
 #import "NAREmailCell.h"
 
+
 @implementation NAREmailCell
 
 - (void)configureCellWithBody:(NSString *)body
@@ -22,24 +23,31 @@
   self.webView.delegate = self;
 }
 
-- (void)refreshTable {
-  id<EmailCellDelegate> strongDelegate = self.delegate;
-  
-  // Our delegate method is optional, so we should
-  // check that the delegate implements it
-  if ([strongDelegate respondsToSelector:@selector(refreshTable)]) {
-    [strongDelegate refreshTable];
-  }
-}
-
 - (void)handleDoubleTap:(UITapGestureRecognizer *)sender
 {
-//  NSLog(@"TAP!!!"); // why would this throw an error... threads?
   if (sender.state == UIGestureRecognizerStateEnded) {
-    // sometimes there's a ghost event that does makes it go 2ce??
-    self.email.isFullSize = !self.email.isFullSize;
+    // sometimes there's a ghost event that makes it go 2ce??
+//    if(1 < 0) {
+//      self.email.isFullSize = !self.email.isFullSize; // memory leak here cause of problem??
+//    }
 
-    [self refreshTable];
+    id<EmailCellDelegate> strongDelegate = self.delegate;
+    
+    double oldTime = self.delegate.getLastResizeTime;
+    double newTime = CACurrentMediaTime();
+    NSLog(@"OLDTIME %f", oldTime);
+    NSLog(@"NEWTIME %f", newTime);
+    [self.delegate setLastResizeTime:newTime];
+    double timeDiff = newTime - oldTime;
+    
+    if(timeDiff < .02) {
+      NSLog(@"DON'T DO ANYTHING");
+    }
+    else {
+      if ([strongDelegate respondsToSelector:@selector(refreshTable)]) {
+        [strongDelegate refreshTable];
+      }
+    }
   }
 }
 
@@ -64,7 +72,7 @@
   webView.scrollView.scrollEnabled = false;
 //  webView.scalesPageToFit = TRUE;
   
-  NSLog(@"FINISHED LOADING: %f", size.height);
+//  NSLog(@"FINISHED LOADING: %f", size.height);
   self.email.fullSize = size.height;
 }
 
