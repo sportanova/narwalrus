@@ -26,25 +26,18 @@
 - (void)handleDoubleTap:(UITapGestureRecognizer *)sender
 {
   if (sender.state == UIGestureRecognizerStateEnded) {
-    // sometimes there's a ghost event that makes it go 2ce??
-//    if(1 < 0) {
-//      self.email.isFullSize = !self.email.isFullSize; // memory leak here cause of problem??
-//    }
-
     id<EmailCellDelegate> strongDelegate = self.delegate;
+    id<EmailCellDelegate> strongEmailDelegate = self.emailDelegate;
     
     double oldTime = self.delegate.getLastResizeTime;
     double newTime = CACurrentMediaTime();
-    NSLog(@"OLDTIME %f", oldTime);
-    NSLog(@"NEWTIME %f", newTime);
     [self.delegate setLastResizeTime:newTime];
     double timeDiff = newTime - oldTime;
     
-    if(timeDiff < .02) {
-      NSLog(@"DON'T DO ANYTHING");
-    }
+    if(timeDiff < .02) {}
     else {
       if ([strongDelegate respondsToSelector:@selector(refreshTable)]) {
+        [strongEmailDelegate flipFullSize];
         [strongDelegate refreshTable];
       }
     }

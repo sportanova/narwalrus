@@ -36,4 +36,10 @@
   return self;
 }
 
+- (void)flipFullSize
+{
+  self.isFullSize = !self.isFullSize;
+}
+
+
 @end

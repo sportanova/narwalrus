@@ -15,6 +15,7 @@
 @interface NAREmailCell : UITableViewCell<UIWebViewDelegate, UIGestureRecognizerDelegate>
 - (void)configureCellWithBody:(NSString *)body;
 @property (nonatomic, weak) id<EmailCellDelegate> delegate;
+@property (nonatomic, weak) id<EmailCellDelegate> emailDelegate;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, atomic) NAREmail *email;
 @end

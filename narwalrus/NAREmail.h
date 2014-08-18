@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NAREmail : NSObject
+@protocol EmailCellDelegate;
+
+@interface NAREmail : NSObject<EmailCellDelegate>
 @property NSString* subject;
 @property NSString* recipients;
 @property NSString* userId;
@@ -20,9 +22,10 @@
 + (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody;
 
-// Designated initializer for NAREmail
 - (instancetype)initWithEmailSubject:(NSString *)name recipients:(NSString *)recipients textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody;
 - (NSString *)subject;
+
+//- (void)flipFullSize;
 
 @end

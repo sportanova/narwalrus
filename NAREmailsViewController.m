@@ -24,9 +24,9 @@
 @synthesize lastResizeTime = _lastResizeTime;
 @synthesize userId = _userId;
 
-- (void)setLastCellResizeTime:(double)time {
-  self.lastCellResizeTime = CACurrentMediaTime();
-}
+//- (void)setLastCellResizeTime:(double)time {
+//  self.lastCellResizeTime = CACurrentMediaTime();
+//}
 
 - (double)getLastResizeTime {
   return self.lastResizeTime;
@@ -57,17 +57,13 @@
   
   if(email.isFullSize == 1) {
     height = email.fullSize + 25;
-    NSLog(@"FullSize: %d", email.isFullSize);
-  } else {
-//    NSLog(@"0");
   }
-  email.isFullSize = !email.isFullSize;
+
   return height;
 }
 
 - (void)refreshTable
 {
-  NSLog(@"REDRAWING");
   NSIndexPath *durPath = [NSIndexPath indexPathForRow:0 inSection:0];
   NSArray *paths = [NSArray arrayWithObject:durPath];
   
@@ -109,6 +105,7 @@
   cell.email = email;
   
   cell.delegate = self;
+  cell.emailDelegate = email;
   
   return cell;
 }

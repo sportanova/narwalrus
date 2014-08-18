@@ -13,10 +13,14 @@
 @class NAREmailCell;
 
 @protocol EmailCellDelegate <NSObject>
+@optional
 - (void)refreshTable;
+@optional
 - (void)setLastResizeTime:(double)time;
+@optional
 - (double)getLastResizeTime;
-//@property (assign, atomic) double lastResizeTime;
+@optional
+- (void)flipFullSize;
 @end
 
 @interface NAREmailsViewController : UITableViewController<EmailCellDelegate>
@@ -26,5 +30,5 @@
 @property (assign, atomic) double lastResizeTime;
 
 - (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId;
-- (void)setLastResizeTime;
+//- (void)setLastResizeTime;
 @end
