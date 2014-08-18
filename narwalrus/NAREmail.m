@@ -14,15 +14,19 @@
 @synthesize textBody = _textBody;
 @synthesize htmlBody = _htmlBody;
 @synthesize isFullSize = _isFullSize;
+@synthesize sender = _sender;
 
 + (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody {
-  NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
+  htmlBody:(NSString *)htmlBody sender:(NSString *)sender
+{
+  NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody
+  sender:sender];
   return newEmail;
 }
 
 - (instancetype)initWithEmailSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody {
+  htmlBody:(NSString *)htmlBody sender:(NSString *)sender
+{
   self = [super init];
   
   if (self) {
@@ -30,6 +34,7 @@
     self.recipients = recipients;
     self.textBody = textBody;
     self.htmlBody = htmlBody;
+    self.sender = sender;
     self.isFullSize = false;
   }
   

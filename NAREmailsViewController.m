@@ -75,9 +75,9 @@
 }
 
 - (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody
+  htmlBody:(NSString *)htmlBody sender:(NSString *)sender
 {
-  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
+  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody sender:(NSString *)sender];
   
   NSInteger lastRow = [[[NAREmailStore sharedStore] allEmails] indexOfObject:newEmail];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -101,7 +101,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
-  [cell configureCellWithBody:[email htmlBody]];
+  [cell configureCellWithBody:[email htmlBody] sender:[email sender]];
   cell.email = email;
   
   cell.delegate = self;
@@ -137,7 +137,9 @@
          NSString *recipients = [EmailDict objectForKey:@"recipients"];
          NSString *textBody = [EmailDict objectForKey:@"textBody"];
          NSString *htmlBody = [EmailDict objectForKey:@"htmlBody"];
-         [self addNewEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody];
+         NSString *sender = [EmailDict objectForKey:@"sender"];
+
+         [self addNewEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody sender:sender];
        }
      });
    }];

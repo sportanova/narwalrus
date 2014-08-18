@@ -11,7 +11,7 @@
 
 @implementation NAREmailCell
 
-- (void)configureCellWithBody:(NSString *)body
+- (void)configureCellWithBody:(NSString *)body sender:(NSString *)sender
 {
   UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] init];
   [doubleTap setNumberOfTapsRequired:2];
@@ -21,6 +21,8 @@
 
   [self.webView loadHTMLString:body baseURL:nil];
   self.webView.delegate = self;
+  
+  self.senderLabel.text = sender;
 }
 
 - (void)handleDoubleTap:(UITapGestureRecognizer *)sender

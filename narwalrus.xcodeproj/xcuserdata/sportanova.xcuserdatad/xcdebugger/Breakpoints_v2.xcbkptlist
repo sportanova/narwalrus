@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NAREmailCell.m"
-            timestampString = "430014280.098608"
+            timestampString = "430053449.595443"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-handleDoubleTap:"
             landmarkType = "5">
          </BreakpointContent>
@@ -196,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "narwalrus/NAREmail.h"
-            timestampString = "430043602.075455"
+            timestampString = "430053449.595443"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"

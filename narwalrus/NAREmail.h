@@ -12,6 +12,7 @@
 
 @interface NAREmail : NSObject<EmailCellDelegate>
 @property NSString* subject;
+@property NSString* sender;
 @property NSString* recipients;
 @property NSString* userId;
 @property NSString* textBody;
@@ -20,10 +21,10 @@
 @property (assign) bool isFullSize;
 
 + (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody;
+  htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
 
 - (instancetype)initWithEmailSubject:(NSString *)name recipients:(NSString *)recipients textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody;
+  htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
 - (NSString *)subject;
 
 //- (void)flipFullSize;

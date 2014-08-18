@@ -13,9 +13,10 @@
 @protocol EmailCellDelegate;
 
 @interface NAREmailCell : UITableViewCell<UIWebViewDelegate, UIGestureRecognizerDelegate>
-- (void)configureCellWithBody:(NSString *)body;
+- (void)configureCellWithBody:(NSString *)body sender:(NSString *)sender;
 @property (nonatomic, weak) id<EmailCellDelegate> delegate;
 @property (nonatomic, weak) id<EmailCellDelegate> emailDelegate;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UILabel *senderLabel;
 @property (weak, atomic) NAREmail *email;
 @end

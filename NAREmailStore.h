@@ -15,5 +15,5 @@
 - (void)deleteStore;
 + (instancetype)sharedStore;
 - (NAREmail *)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody;
+  htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
 @end
