@@ -13,6 +13,7 @@
 #import "NARTopic.h"
 #import "NARConversation.h"
 #import "NAREmailCell.h"
+#import "NARAppDelegate.h"
 @protocol EmailCellDelegate;
 
 @interface NAREmailsViewController()
@@ -24,10 +25,6 @@
 @synthesize lastResizeTime = _lastResizeTime;
 @synthesize userId = _userId;
 
-//- (void)setLastCellResizeTime:(double)time {
-//  self.lastCellResizeTime = CACurrentMediaTime();
-//}
-
 - (double)getLastResizeTime {
   return self.lastResizeTime;
 }
@@ -37,9 +34,9 @@
   
   self.topic = topic;
   self.userId = userId;
+  self.serverUrl = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] serverUrl];
   
   self.lastResizeTime = CACurrentMediaTime();
-  NSLog(@"RESIZETIME %f", self.lastResizeTime);
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
@@ -56,7 +53,7 @@
   NSInteger height = 100;
   
   if(email.isFullSize == 1) {
-    height = email.fullSize + 25;
+    height = email.fullSize + 50;
   }
 
   return height;
@@ -101,6 +98,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
+
   [cell configureCellWithBody:[email htmlBody] sender:[email sender]];
   cell.email = email;
   
@@ -123,7 +121,7 @@
 
 
 - (void)fetchEmailsWithUserId:(NSString *)userId threadId:(NSString *)threadId {
-  NSString *requestString = [NSString stringWithFormat: @"http://localhost:8080/emails/%@/%@", userId,threadId];
+  NSString *requestString = [NSString stringWithFormat: @"%@/emails/%@/%@", self.serverUrl, userId,threadId];
 
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];

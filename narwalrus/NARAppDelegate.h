@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, atomic) NSString *userId;
+@property (strong, atomic) NSString *serverUrl;
 
 @end

@@ -24,6 +24,7 @@
   // TODO: reference cycle?
   self.conversation = conversation;
   self.userId = userId;
+  self.serverUrl = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] serverUrl];
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
@@ -88,7 +89,7 @@
 }
 
 - (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash {
-  NSString *requestString = [NSString stringWithFormat:@"http://localhost:8080/topics/%@/%@", userId, hash];
+  NSString *requestString = [NSString stringWithFormat:@"%@/topics/%@/%@", self.serverUrl, userId, hash];
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   

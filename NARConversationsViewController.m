@@ -23,6 +23,7 @@
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
   
   self.userId = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId];
+  self.serverUrl = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] serverUrl];
   
   [self fetchConversations];
 
@@ -61,7 +62,7 @@
   NARConversation *conversation = conversations[indexPath.row];
   
   cell.recipientsLabel.text = [conversation recipients];
-  cell.recipientsLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:12.0f];
+  cell.recipientsLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:18.0f];
   
   return cell;
 }
@@ -80,7 +81,7 @@
 
 - (void)fetchConversations
 {
-  NSString *requestString = [NSString stringWithFormat:@"http://localhost:8080/conversations/%@", self.userId];
+  NSString *requestString = [NSString stringWithFormat:@"%@/conversations/ordered/%@", self.serverUrl, self.userId];
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   

@@ -12,4 +12,5 @@
 @interface NARConversationsViewController : UITableViewController
   @property(strong, atomic) NSURLSession *session;
   @property(strong, atomic) NSString *userId;
+@property(weak, atomic) NSString *serverUrl;
 @end

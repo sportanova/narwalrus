@@ -16,9 +16,12 @@
 {
 //  NSBundle *appBundle = [NSBundle mainBundle];
 
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
-  self.userId = @"f09c4f2c-a0dd-4903-be29-784582367495";
+  self.userId = @"bbe1131d-3be5-4997-a1ee-295f6f2c9dbf";
+  
+//  self.serverUrl = @"http://narmal.com";
+  self.serverUrl = @"http://localhost:8080"; // local
   
     // Override point for customization after application launch.
   NARConversationsViewController *conversationsVC = [[NARConversationsViewController alloc] init];

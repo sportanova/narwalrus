@@ -28,6 +28,7 @@
 @property(strong,atomic) NARTopic *topic;
 @property(strong,atomic) NSString *userId;
 @property (assign, atomic) double lastResizeTime;
+@property(weak, atomic) NSString *serverUrl;
 
 - (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId;
 //- (void)setLastResizeTime;
