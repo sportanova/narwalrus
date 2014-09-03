@@ -60,12 +60,18 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+  webView.scalesPageToFit = YES;
+  return YES;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView // finds full email size so it can be expanded on double tap
 {
   CGSize size = CGSizeMake(webView.scrollView.contentSize.width,[[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue]);
 
   webView.scrollView.scrollEnabled = false;
-//  webView.scalesPageToFit = TRUE;
+  webView.scalesPageToFit = TRUE; // had this commented out for some reason...
   
 //  NSLog(@"FINISHED LOADING: %f", size.height);
   self.email.fullSize = size.height;

@@ -17,7 +17,6 @@
 @protocol EmailCellDelegate;
 
 @interface NAREmailsViewController()
-@property (nonatomic, strong) NAREmailCell *prototypeCell;
 @end
 
 @implementation NAREmailsViewController
