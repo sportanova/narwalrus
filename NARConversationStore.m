@@ -37,6 +37,10 @@
   return self;
 }
 
+- (void)deleteStore {
+  self.privateConversations = [[NSMutableArray alloc] init];
+}
+
 - (NARConversation *)createConversationWithRecipientsHash:(NSString *)hash
   recipients:(NSString *)recipients {
   NARConversation *conversation = [NARConversation createConversationWithRecipientsHash:hash recipients:recipients];

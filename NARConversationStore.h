@@ -11,8 +11,8 @@
 @class NARConversation;
 
 @interface NARConversationStore : NSObject
-  @property (nonatomic, readonly) NSArray *allConversations;
-  + (instancetype)sharedStore;
-- (NARConversation *)createConversationWithRecipientsHash:(NSString *)recipientsHash
-  recipients:(NSString *)recipients;
+@property (nonatomic, readonly) NSArray *allConversations;
++ (instancetype)sharedStore;
+- (void)deleteStore;
+- (NARConversation *)createConversationWithRecipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients;
 @end

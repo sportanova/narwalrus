@@ -13,8 +13,13 @@
 #import "NARAppDelegate.h"
 #import "NARConversationCell.h"
 
+@interface NARConversationsViewController()
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@end
+
 @implementation NARConversationsViewController
 @synthesize userId = _userId;
+@synthesize refreshControl = _refreshControl;
 
 - (instancetype)init {
   self = [super initWithStyle:UITableViewStylePlain];
@@ -70,6 +75,10 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  self.refreshControl = [[UIRefreshControl alloc] init];
+  [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+  [self.tableView addSubview:self.refreshControl];
+  
   self.view.backgroundColor = [UIColor colorWithRed:108.0f/255.0f green:122.0f/255.0f blue:137.0f/255.0f alpha:1.0f];
 
   UINib *nib = [UINib nibWithNibName:@"NARConversationCell" bundle:nil];
@@ -78,6 +87,10 @@
   [self.tableView registerNib:nib forCellReuseIdentifier:@"NARConversationCell"];
 }
 
+- (void)refresh:(id)sender
+{
+  [self fetchConversations];
+}
 
 - (void)fetchConversations
 {
@@ -88,8 +101,14 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-     
+    
+    NARConversationsViewController * __weak weakSelf = self;
+    NARConversationStore * __weak weakConvStore = [NARConversationStore sharedStore];
+    
      dispatch_async(dispatch_get_main_queue(), ^{
+       [weakConvStore deleteStore];
+       [weakSelf.tableView reloadData];
+
        for(NSDictionary *conversationDict in jsonArray) {
          NSString *subject = [conversationDict objectForKey:@"subject"];
          NSString *recipientsHash = [conversationDict objectForKey:@"recipientsHash"];
@@ -97,8 +116,11 @@
          NSArray *recipientsJSON = [conversationDict objectForKey:@"recipients"];
          NSString * recipients = [[recipientsJSON valueForKey:@"description"] componentsJoinedByString:@", "];
 
-         [self addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients];
+         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients];
        }
+
+       [weakSelf.refreshControl endRefreshing];
+       [weakSelf.tableView reloadData];
      });
    }];
   [dataTask resume];
