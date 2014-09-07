@@ -101,7 +101,6 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    
     NARConversationsViewController * __weak weakSelf = self;
     NARConversationStore * __weak weakConvStore = [NARConversationStore sharedStore];
     

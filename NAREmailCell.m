@@ -18,6 +18,8 @@
   [doubleTap setDelegate:self];
   [doubleTap addTarget:self action:@selector(handleDoubleTap:)];
   [self.webView addGestureRecognizer:doubleTap];
+  
+  NSString *html = [NSString stringWithFormat:@"%@ %@", @"<meta name='viewport' content='width=320,user-scalable=yes,initial-scale=1.0'>", body];
 
   [self.webView loadHTMLString:body baseURL:nil]; // <meta name="viewport" content="width=320,user-scalable=yes,initial-scale=1.0"> http://stackoverflow.com/questions/14181543/obj-c-uiwebview-responsive-html  <meta name="viewport" content="width=device-width, initial-scale=1"> goes in head tag
   self.webView.delegate = self;
@@ -62,7 +64,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-  // webView.scalesPageToFit = YES; // makes text way too small, but responsive emails work way better
+//  webView.scalesPageToFit = YES; // makes text way too small, but responsive emails work way better
   return YES;
 }
 
@@ -71,9 +73,8 @@
   CGSize size = CGSizeMake(webView.scrollView.contentSize.width,[[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue]);
 
   webView.scrollView.scrollEnabled = false;
- // webView.scalesPageToFit = TRUE; // makes text way too small, but responsive emails work way better
+//  webView.scalesPageToFit = TRUE; // makes text way too small, but responsive emails work way better
   
-//  NSLog(@"FINISHED LOADING: %f", size.height);
   self.email.fullSize = size.height;
 }
 

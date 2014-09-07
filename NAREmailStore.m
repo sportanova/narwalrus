@@ -53,7 +53,7 @@
 }
 
 - (NSArray *)allEmails {
-  return self.privateEmails;
+  return [[self.privateEmails reverseObjectEnumerator] allObjects];
 }
 @end
 
