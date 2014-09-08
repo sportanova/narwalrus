@@ -36,6 +36,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  [self.messageTextView setUserInteractionEnabled:YES];
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   
