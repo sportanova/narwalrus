@@ -1,12 +1,12 @@
 //
-//  NAREmailsViewController.m
+//  NAREmailVCViewController.m
 //  narwalrus
 //
-//  Created by Stephen Portanova on 7/10/14.
+//  Created by Stephen Portanova on 9/7/14.
 //  Copyright (c) 2014 sportanova. All rights reserved.
 //
 
-#import "NAREmailsViewController.h"
+#import "NAREmailVCViewController.h"
 #import "NARConversationsViewController.h"
 #import "NAREmailStore.h"
 #import "NAREmail.h"
@@ -14,43 +14,36 @@
 #import "NARConversation.h"
 #import "NAREmailCell.h"
 #import "NARAppDelegate.h"
-@protocol EmailCellDelegate;
 
-@interface NAREmailsViewController()
+@interface NAREmailVCViewController ()
+
 @end
 
-@implementation NAREmailsViewController
+@implementation NAREmailVCViewController
 @synthesize topic = _topic;
 @synthesize lastResizeTime = _lastResizeTime;
 @synthesize userId = _userId;
 
-- (double)getLastResizeTime {
-  return self.lastResizeTime;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
 
-- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId {
-  self = [super initWithStyle:UITableViewStylePlain];
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
   
-  self.topic = topic;
-  self.userId = userId;
-  self.serverUrl = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] serverUrl];
+  UINib *nib = [UINib nibWithNibName:@"NAREmailCell" bundle:nil];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"NAREmailCell"];
   
-  self.lastResizeTime = CACurrentMediaTime();
-  
-  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-  self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
-
-  [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId];
-  
-  return self;
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
-
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-//{
-//  UITextView *textView = [[UITextView alloc] init];
-//  textView.text = @"HEY";
-//  return textView;
-//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -61,7 +54,7 @@
   if(email.isFullSize == 1) {
     height = email.fullSize + 50;
   }
-
+  
   return height;
 }
 
@@ -77,8 +70,56 @@
   [[NAREmailStore sharedStore] deleteStore];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  NSLog(@"count: %lu", (unsigned long)[[[NAREmailStore sharedStore] allEmails] count]);
+  return [[[NAREmailStore sharedStore] allEmails] count];
+}
+
+- (NAREmail *)getEmailAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSArray *emails = [[NAREmailStore sharedStore] allEmails];
+  NAREmail *email = emails[indexPath.row];
+  return email;
+}
+
+- (double)getLastResizeTime {
+  return self.lastResizeTime;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSLog(@"WAT");
+  NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
+  NAREmail *email = [self getEmailAtIndexPath:indexPath];
+  
+  [cell configureCellWithBody:[email htmlBody] sender:[email sender]];
+  cell.email = email;
+  
+  cell.delegate = self;
+  cell.emailDelegate = email;
+  
+  return cell;
+}
+
+- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId {
+  self = [super init];
+  
+  self.topic = topic;
+  self.userId = userId;
+  self.serverUrl = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] serverUrl];
+  
+  self.lastResizeTime = CACurrentMediaTime();
+  
+  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+  self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+  
+  [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId];
+  
+  return self;
+}
+
 - (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSString *)sender
+                            htmlBody:(NSString *)htmlBody sender:(NSString *)sender
 {
   NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody sender:(NSString *)sender];
   
@@ -90,51 +131,16 @@
   return newEmail;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [[[NAREmailStore sharedStore] allEmails] count];
-}
-
-- (NAREmail *)getEmailAtIndexPath:(NSIndexPath *)indexPath
-{
-  NSArray *emails = [[NAREmailStore sharedStore] allEmails];
-  NAREmail *email = emails[indexPath.row];
-  return email;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
-  NAREmail *email = [self getEmailAtIndexPath:indexPath];
-
-  [cell configureCellWithBody:[email htmlBody] sender:[email sender]];
-  cell.email = email;
-  
-  cell.delegate = self;
-  cell.emailDelegate = email;
-  
-  return cell;
-}
-
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  
-  self.view.backgroundColor = [UIColor colorWithRed:108.0f/255.0f green:122.0f/255.0f blue:137.0f/255.0f alpha:1.0f];
-  
-  UINib *nib = [UINib nibWithNibName:@"NAREmailCell" bundle:nil];
-  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-  
-  [self.tableView registerNib:nib forCellReuseIdentifier:@"NAREmailCell"];
-}
-
-
 - (void)fetchEmailsWithUserId:(NSString *)userId threadId:(NSString *)threadId {
   NSString *requestString = [NSString stringWithFormat: @"%@/emails/%@/%@", self.serverUrl, userId,threadId];
-
+  
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+     NSLog(@"json: %@", jsonArray);
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *EmailDict in jsonArray) {
          NSString *subject = [EmailDict objectForKey:@"subject"];
@@ -142,7 +148,7 @@
          NSString *textBody = [EmailDict objectForKey:@"textBody"];
          NSString *htmlBody = [EmailDict objectForKey:@"htmlBody"];
          NSString *sender = [EmailDict objectForKey:@"sender"];
-
+         
          [self addNewEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody sender:sender];
        }
      });
@@ -150,8 +156,11 @@
   [dataTask resume];
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style {
-  return [self init];
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

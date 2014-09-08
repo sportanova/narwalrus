@@ -13,6 +13,7 @@
 #import "NAREmailsViewController.h"
 #import "NARAppDelegate.h"
 #import "NARTopicCell.h"
+#import "NAREmailVCViewController.h"
 
 @implementation NARTopicsTableViewController
 @synthesize userId = _userId;
@@ -46,8 +47,10 @@
   NSArray *topics = [[NARTopicStore sharedStore] allTopics];
   NARTopic *topic = topics[indexPath.row];
 
-  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithTopic:topic userId:self.userId];
-  [self.navigationController pushViewController:emailsVC animated:YES];
+//  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithTopic:topic userId:self.userId];
+//  [self.navigationController pushViewController:emailsVC animated:YES];
+  NAREmailVCViewController *emailVC = [[NAREmailVCViewController alloc] initWithTopic:topic userId:self.userId];
+  [self.navigationController pushViewController:emailVC animated:YES];
 }
 
 - (NARTopic *)addNewTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId {
