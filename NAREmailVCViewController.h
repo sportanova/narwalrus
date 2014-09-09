@@ -19,7 +19,6 @@
 @property (assign, atomic) double lastResizeTime;
 @property(weak, atomic) NSString *serverUrl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITextView *messageTextView;
 
 - (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId;
 @end
