@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NAREmailsViewController.h"
+#import "NAREmailVCViewController.h"
 #import "NAREmail.h"
 
 @protocol EmailCellDelegate;

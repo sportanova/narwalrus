@@ -39,7 +39,6 @@
 		54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */; };
 		54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12C1966926900A6EEC3 /* NARConversation.m */; };
 		54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */; };
-		54B2B13B196EA8C400A6EEC3 /* NAREmailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */; };
 		54B2B13E196EA94C00A6EEC3 /* NAREmailStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */; };
 		54B2B141196EA9F700A6EEC3 /* NAREmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B2B140196EA9F700A6EEC3 /* NAREmail.m */; };
 /* End PBXBuildFile section */
@@ -102,8 +101,6 @@
 		54B2B12C1966926900A6EEC3 /* NARConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversation.m; sourceTree = "<group>"; };
 		54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARConversationStore.h; sourceTree = "<group>"; };
 		54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARConversationStore.m; sourceTree = "<group>"; };
-		54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmailsViewController.h; sourceTree = "<group>"; };
-		54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAREmailsViewController.m; sourceTree = "<group>"; };
 		54B2B13C196EA94C00A6EEC3 /* NAREmailStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmailStore.h; sourceTree = "<group>"; };
 		54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAREmailStore.m; sourceTree = "<group>"; };
 		54B2B13F196EA9F700A6EEC3 /* NAREmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmail.h; sourceTree = "<group>"; };
@@ -170,8 +167,6 @@
 				548B96CF19BE95610022BE35 /* NARSendMessageViewController.h */,
 				548B96D019BE95610022BE35 /* NARSendMessageViewController.m */,
 				548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */,
-				54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */,
-				54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */,
 				546227B319BD2683004A9A40 /* NAREmailVCViewController.m */,
 				546227B219BD2683004A9A40 /* NAREmailVCViewController.h */,
 				546227B419BD2683004A9A40 /* NAREmailVCViewController.xib */,
@@ -369,7 +364,6 @@
 				546227B519BD2683004A9A40 /* NAREmailVCViewController.m in Sources */,
 				549A20DF195D33D500DDE088 /* NARAppDelegate.m in Sources */,
 				549CB425199B2BAA0071EB70 /* NARTopicCell.m in Sources */,
-				54B2B13B196EA8C400A6EEC3 /* NAREmailsViewController.m in Sources */,
 				54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */,
 				54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */,
 				549A20DB195D33D500DDE088 /* main.m in Sources */,

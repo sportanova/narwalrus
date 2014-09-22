@@ -10,7 +10,6 @@
 #import "NARTopicStore.h"
 #import "NARTopic.h"
 #import "NARConversation.h"
-#import "NAREmailsViewController.h"
 #import "NARAppDelegate.h"
 #import "NARTopicCell.h"
 #import "NAREmailVCViewController.h"

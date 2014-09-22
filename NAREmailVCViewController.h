@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NAREmailsViewController.h"
 
 @class NARTopic;
 @class NAREmailCell;
+
+@protocol EmailCellDelegate <NSObject>
+@optional
+- (void)refreshTable;
+@optional
+- (void)setLastResizeTime:(double)time;
+@optional
+- (double)getLastResizeTime;
+@optional
+- (void)flipFullSize;
+@end
 
 @interface NAREmailVCViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, EmailCellDelegate, UIGestureRecognizerDelegate>
 @property(strong, atomic) NSURLSession *session;
