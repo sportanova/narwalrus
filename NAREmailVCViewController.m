@@ -132,10 +132,10 @@
   return self;
 }
 
-- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
+- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
                             htmlBody:(NSString *)htmlBody sender:(NSString *)sender
 {
-  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody sender:(NSString *)sender];
+  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:(NSString *)sender];
   
   NSInteger lastRow = [[[NAREmailStore sharedStore] allEmails] indexOfObject:newEmail];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -165,12 +165,12 @@
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *EmailDict in jsonArray) {
          NSString *subject = [EmailDict objectForKey:@"subject"];
-         NSString *recipients = [EmailDict objectForKey:@"recipients"];
+         NSString *recipientsHash = [EmailDict objectForKey:@"recipientsHash"];
          NSString *textBody = [EmailDict objectForKey:@"textBody"];
          NSString *htmlBody = [EmailDict objectForKey:@"htmlBody"];
          NSString *sender = [EmailDict objectForKey:@"sender"];
          
-         [self addNewEmailWithSubject:subject recipients:recipients textBody:textBody htmlBody:htmlBody sender:sender];
+         [self addNewEmailWithSubject:subject recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender];
        }
      });
    }];

@@ -40,7 +40,7 @@
 {
   NAREmail *lastEmail = [[[NAREmailStore sharedStore] allEmails] lastObject];
   NSLog(@"array %@", [[NAREmailStore sharedStore] allEmails]);
-  [[NAREmailStore sharedStore] createEmailWithSubject:lastEmail.subject recipients:lastEmail.recipients textBody:lastEmail.textBody htmlBody:@"HEY OOOH" sender:@"sportano@gmail.com"]; // TODO: MAKE THIS DYNAMIC!!!
+  [[NAREmailStore sharedStore] createEmailWithSubject:lastEmail.subject recipientsHash:lastEmail.recipientsHash textBody:lastEmail.textBody htmlBody:@"HEY OOOH" sender:@"sportano@gmail.com"]; // TODO: MAKE THIS DYNAMIC!!!
   
   NSLog(@"SENDING");
 }

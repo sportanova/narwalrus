@@ -13,17 +13,17 @@
 @interface NAREmail : NSObject<EmailCellDelegate>
 @property NSString* subject;
 @property NSString* sender;
-@property NSString* recipients;
+@property NSString* recipientsHash;
 @property NSString* userId;
 @property NSString* textBody;
 @property NSString* htmlBody;
 @property (assign) NSInteger fullSize;
 @property (assign) bool isFullSize;
 
-+ (instancetype)createEmailWithSubject:(NSString *)subject recipients:(NSString *)recipients textBody:(NSString *)textBody
++ (instancetype)createEmailWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
 
-- (instancetype)initWithEmailSubject:(NSString *)name recipients:(NSString *)recipients textBody:(NSString *)textBody
+- (instancetype)initWithEmailSubject:(NSString *)name recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
 - (NSString *)subject;
 
