@@ -15,6 +15,8 @@
 		5438246B199724B600376A10 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5438246A199724B500376A10 /* Bariol_Regular.otf */; };
 		546227B519BD2683004A9A40 /* NAREmailVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546227B319BD2683004A9A40 /* NAREmailVCViewController.m */; };
 		546227B619BD2683004A9A40 /* NAREmailVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546227B419BD2683004A9A40 /* NAREmailVCViewController.xib */; };
+		548B96D219BE95610022BE35 /* NARSendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B96D019BE95610022BE35 /* NARSendMessageViewController.m */; };
+		548B96D319BE95610022BE35 /* NARSendMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */; };
 		549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
 		549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D0195D33D400DDE088 /* CoreGraphics.framework */; };
 		549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
@@ -63,6 +65,9 @@
 		546227B219BD2683004A9A40 /* NAREmailVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAREmailVCViewController.h; sourceTree = "<group>"; };
 		546227B319BD2683004A9A40 /* NAREmailVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAREmailVCViewController.m; sourceTree = "<group>"; };
 		546227B419BD2683004A9A40 /* NAREmailVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NAREmailVCViewController.xib; sourceTree = "<group>"; };
+		548B96CF19BE95610022BE35 /* NARSendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARSendMessageViewController.h; sourceTree = "<group>"; };
+		548B96D019BE95610022BE35 /* NARSendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARSendMessageViewController.m; sourceTree = "<group>"; };
+		548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARSendMessageViewController.xib; sourceTree = "<group>"; };
 		549A20CB195D33D400DDE088 /* narwalrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = narwalrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549A20CE195D33D400DDE088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		549A20D0195D33D400DDE088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,18 +167,21 @@
 				549CB426199BC3B90071EB70 /* NAREmailCell.h */,
 				549CB427199BC3B90071EB70 /* NAREmailCell.m */,
 				549CB428199BC3B90071EB70 /* NAREmailCell.xib */,
+				548B96CF19BE95610022BE35 /* NARSendMessageViewController.h */,
+				548B96D019BE95610022BE35 /* NARSendMessageViewController.m */,
+				548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */,
 				54B2B139196EA8C400A6EEC3 /* NAREmailsViewController.h */,
 				54B2B13A196EA8C400A6EEC3 /* NAREmailsViewController.m */,
 				546227B319BD2683004A9A40 /* NAREmailVCViewController.m */,
 				546227B219BD2683004A9A40 /* NAREmailVCViewController.h */,
 				546227B419BD2683004A9A40 /* NAREmailVCViewController.xib */,
-				54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */,
 				54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */,
 				54B2B13C196EA94C00A6EEC3 /* NAREmailStore.h */,
+				54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */,
 				549CB415199A27260071EB70 /* NARTopicStore.h */,
 				549CB416199A27260071EB70 /* NARTopicStore.m */,
-				54B2B13D196EA94C00A6EEC3 /* NAREmailStore.m */,
 				54B2B12F196A9EA500A6EEC3 /* NARConversationStore.m */,
+				54B2B12819668F0F00A6EEC3 /* NARConversationsViewController.h */,
 				54B2B12919668F0F00A6EEC3 /* NARConversationsViewController.m */,
 				549A20D4195D33D400DDE088 /* narwalrus */,
 				549A20ED195D33D500DDE088 /* narwalrusTests */,
@@ -338,6 +346,7 @@
 				540DC39419970EDC00005AEC /* Franchise-Bold.otf in Resources */,
 				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
 				549CB42A199BC3B90071EB70 /* NAREmailCell.xib in Resources */,
+				548B96D319BE95610022BE35 /* NARSendMessageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +373,7 @@
 				54B2B12D1966926900A6EEC3 /* NARConversation.m in Sources */,
 				54B2B12A19668F0F00A6EEC3 /* NARConversationsViewController.m in Sources */,
 				549A20DB195D33D500DDE088 /* main.m in Sources */,
+				548B96D219BE95610022BE35 /* NARSendMessageViewController.m in Sources */,
 				54B2B130196A9EA500A6EEC3 /* NARConversationStore.m in Sources */,
 				5409CBD11995B7E300D95ECE /* NARConversationCell.m in Sources */,
 				549CB420199B21300071EB70 /* NARTopicsTableViewController.m in Sources */,

@@ -14,6 +14,7 @@
 #import "NARConversation.h"
 #import "NAREmailCell.h"
 #import "NARAppDelegate.h"
+#import "NARSendMessageViewController.h"
 
 @interface NAREmailVCViewController ()
 
@@ -37,7 +38,15 @@
 {
   [super viewDidLoad];
   
-//  [self.messageTextView setUserInteractionEnabled:YES];
+  UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] init];
+  [singleTap setNumberOfTapsRequired:1];
+  [singleTap setDelegate:self];
+  [singleTap addTarget:self action:@selector(handleSingleTap:)];
+
+  [self.messageLabel setUserInteractionEnabled:YES];
+  [self.messageLabel addGestureRecognizer:singleTap];
+  self.messageLabel.layer.cornerRadius = 10.0f;
+
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   
@@ -69,11 +78,15 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-  [[NAREmailStore sharedStore] deleteStore];
+  if ([self.navigationController.viewControllers indexOfObject:self] == 0) {
+    [[NAREmailStore sharedStore] deleteStore];
+  }
+  
+  [super viewDidDisappear:animated];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  NSLog(@"count: %lu", (unsigned long)[[[NAREmailStore sharedStore] allEmails] count]);
+  NSLog(@"NAR EMAIL count: %lu", (unsigned long)[[[NAREmailStore sharedStore] allEmails] count]);
   return [[[NAREmailStore sharedStore] allEmails] count];
 }
 
@@ -90,7 +103,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSLog(@"WAT");
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
   
@@ -133,6 +145,14 @@
   return newEmail;
 }
 
+- (void)handleSingleTap:(UITapGestureRecognizer *)sender
+{
+  if (sender.state == UIGestureRecognizerStateEnded) {
+    NARSendMessageViewController *sendVC = [[NARSendMessageViewController alloc] init];
+    [self.navigationController pushViewController:sendVC animated:YES];
+  }
+}
+
 - (void)fetchEmailsWithUserId:(NSString *)userId threadId:(NSString *)threadId {
   NSString *requestString = [NSString stringWithFormat: @"%@/emails/%@/%@", self.serverUrl, userId,threadId];
   
@@ -142,7 +162,6 @@
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-     NSLog(@"json: %@", jsonArray);
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *EmailDict in jsonArray) {
          NSString *subject = [EmailDict objectForKey:@"subject"];

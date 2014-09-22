@@ -19,7 +19,7 @@
   [doubleTap addTarget:self action:@selector(handleDoubleTap:)];
   [self.webView addGestureRecognizer:doubleTap];
   
-  NSString *html = [NSString stringWithFormat:@"%@ %@", @"<meta name='viewport' content='width=320,user-scalable=yes,initial-scale=1.0'>", body];
+//  NSString *html = [NSString stringWithFormat:@"%@ %@", @"<meta name='viewport' content='width=320,user-scalable=yes,initial-scale=1.0'>", body];
 
   [self.webView loadHTMLString:body baseURL:nil]; // <meta name="viewport" content="width=320,user-scalable=yes,initial-scale=1.0"> http://stackoverflow.com/questions/14181543/obj-c-uiwebview-responsive-html  <meta name="viewport" content="width=device-width, initial-scale=1"> goes in head tag
   self.webView.delegate = self;

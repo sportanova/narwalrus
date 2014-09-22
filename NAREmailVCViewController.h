@@ -12,13 +12,14 @@
 @class NARTopic;
 @class NAREmailCell;
 
-@interface NAREmailVCViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, EmailCellDelegate>
+@interface NAREmailVCViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, EmailCellDelegate, UIGestureRecognizerDelegate>
 @property(strong, atomic) NSURLSession *session;
 @property(strong,atomic) NARTopic *topic;
 @property(strong,atomic) NSString *userId;
 @property (assign, atomic) double lastResizeTime;
 @property(weak, atomic) NSString *serverUrl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 - (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId;
 @end

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NAREmailVCViewController">
             <connections>
+                <outlet property="messageLabel" destination="Qgp-Ny-wu8" id="mGR-ua-7vo"/>
                 <outlet property="tableView" destination="ftP-KF-FAe" id="hhN-N8-f9G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,23 +16,42 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ftP-KF-FAe">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ftP-KF-FAe">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZN-MS-d9F">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZN-MS-d9F">
                     <rect key="frame" x="0.0" y="505" width="320" height="63"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgp-Ny-wu8">
+                            <rect key="frame" x="20" y="17" width="280" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="Qgp-Ny-wu8" secondAttribute="centerY" id="08q-Qx-znW"/>
+                        <constraint firstAttribute="trailing" secondItem="Qgp-Ny-wu8" secondAttribute="trailing" constant="20" id="bca-aQ-yYQ"/>
+                        <constraint firstItem="Qgp-Ny-wu8" firstAttribute="leading" secondItem="HZN-MS-d9F" secondAttribute="leading" constant="20" id="u2C-gO-2IJ"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="HZN-MS-d9F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7hW-Gu-4TB"/>
                 <constraint firstAttribute="bottom" secondItem="HZN-MS-d9F" secondAttribute="bottom" id="KKI-UN-SRT"/>
+                <constraint firstAttribute="trailing" secondItem="HZN-MS-d9F" secondAttribute="trailing" id="KfB-db-gDz"/>
                 <constraint firstItem="ftP-KF-FAe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NiR-kD-XCW"/>
+                <constraint firstAttribute="trailing" secondItem="ftP-KF-FAe" secondAttribute="trailing" id="WRI-Rh-KMU"/>
                 <constraint firstItem="HZN-MS-d9F" firstAttribute="top" secondItem="ftP-KF-FAe" secondAttribute="bottom" id="bSF-Uf-zpB"/>
                 <constraint firstItem="ftP-KF-FAe" firstAttribute="bottom" secondItem="HZN-MS-d9F" secondAttribute="bottom" constant="-71" id="fpW-v7-xsR"/>
+                <constraint firstItem="ftP-KF-FAe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="y5j-cz-NFA"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
