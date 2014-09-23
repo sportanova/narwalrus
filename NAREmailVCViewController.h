@@ -24,7 +24,7 @@
 @end
 
 @protocol EmailVCParentDelegate <NSObject>
-- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
+- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender prepend:(bool)prepend;
 @end
 
 @interface NAREmailVCViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, EmailCellDelegate, UIGestureRecognizerDelegate, EmailVCParentDelegate>

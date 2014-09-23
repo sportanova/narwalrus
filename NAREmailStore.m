@@ -41,13 +41,17 @@
   return self;
 }
 
-- (NAREmail *)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSString *)sender
+- (NAREmail *)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender prepend:(bool)prepend
 {
   NAREmail *email = [NAREmail createEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody
   sender:sender];
   
-  [self.privateEmails addObject:email];
+  if(prepend == true) {
+    [self.privateEmails insertObject:email atIndex:0];
+  }
+  else {
+    [self.privateEmails addObject:email];
+  }
   
   return email;
 }
