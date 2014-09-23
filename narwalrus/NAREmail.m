@@ -10,27 +10,29 @@
 
 @implementation NAREmail
 @synthesize subject = _subject;
+@synthesize recipientsSet = _recipientsSet;
 @synthesize recipientsHash = _recipientsHash;
 @synthesize textBody = _textBody;
 @synthesize htmlBody = _htmlBody;
 @synthesize isFullSize = _isFullSize;
 @synthesize sender = _sender;
 
-+ (instancetype)createEmailWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
++ (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody sender:(NSString *)sender
 {
-  NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody
+  NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody
   sender:sender];
   return newEmail;
 }
 
-- (instancetype)initWithEmailSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
+- (instancetype)initWithEmailSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody sender:(NSString *)sender
 {
   self = [super init];
   
   if (self) {
     self.subject = subject;
+    self.recipientsSet = recipientsSet;
     self.recipientsHash = recipientsHash;
     self.textBody = textBody;
     self.htmlBody = htmlBody;

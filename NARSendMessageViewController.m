@@ -38,11 +38,16 @@
 
 - (void)sendMessage
 {
+  int count1 = [[[NAREmailStore sharedStore] allEmails] count];
+  NSLog(@"1: %d", count1);
+
   NAREmail *lastEmail = [[[NAREmailStore sharedStore] allEmails] lastObject];
-  NSLog(@"array %@", [[NAREmailStore sharedStore] allEmails]);
-  [[NAREmailStore sharedStore] createEmailWithSubject:lastEmail.subject recipientsHash:lastEmail.recipientsHash textBody:lastEmail.textBody htmlBody:@"HEY OOOH" sender:@"sportano@gmail.com"]; // TODO: MAKE THIS DYNAMIC!!!
+  [[NAREmailStore sharedStore] createEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet recipientsHash:lastEmail.recipientsHash textBody:@"wat" htmlBody:@"HEY OOOH" sender:@"sportano@gmail.com"]; // TODO: MAKE THIS DYNAMIC!!!
   
-  NSLog(@"SENDING");
+  int count2 = [[[NAREmailStore sharedStore] allEmails] count];
+  NSLog(@"2: %d", count2);
+  
+  NSLog(@"SENDING TO: %@", lastEmail.recipientsSet);
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,5 @@
 @property (nonatomic, readonly) NSArray *allEmails;
 - (void)deleteStore;
 + (instancetype)sharedStore;
-- (NAREmail *)createEmailWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
+- (NAREmail *)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
 @end
