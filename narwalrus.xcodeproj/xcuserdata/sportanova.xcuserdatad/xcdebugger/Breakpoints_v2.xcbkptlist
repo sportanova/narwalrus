@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NARSendMessageViewController.m"
-            timestampString = "433153803.006247"
+            timestampString = "433155177.490327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "@implementation NARSendMessageViewController"
             landmarkType = "3">
          </BreakpointContent>

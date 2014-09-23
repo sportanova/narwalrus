@@ -42,6 +42,7 @@
   [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@"sportano@gmail.com" prepend:true];
   
   NSLog(@"SENDING TO: %@", lastEmail.recipientsSet);
+  [self.navigationController popViewControllerAnimated:YES];;
 }
 
 - (void)didReceiveMemoryWarning
