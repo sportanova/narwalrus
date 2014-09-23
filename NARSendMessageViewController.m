@@ -38,14 +38,8 @@
 
 - (void)sendMessage
 {
-  int count1 = [[[NAREmailStore sharedStore] allEmails] count];
-  NSLog(@"1: %d", count1);
-
   NAREmail *lastEmail = [[[NAREmailStore sharedStore] allEmails] lastObject];
-  [[NAREmailStore sharedStore] createEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet recipientsHash:lastEmail.recipientsHash textBody:@"wat" htmlBody:@"HEY OOOH" sender:@"sportano@gmail.com"]; // TODO: MAKE THIS DYNAMIC!!!
-  
-  int count2 = [[[NAREmailStore sharedStore] allEmails] count];
-  NSLog(@"2: %d", count2);
+  [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@"sportano@gmail.com"];
   
   NSLog(@"SENDING TO: %@", lastEmail.recipientsSet);
 }

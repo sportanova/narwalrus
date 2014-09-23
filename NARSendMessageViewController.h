@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NAREmailVCViewController.h"
 
 @interface NARSendMessageViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *messageBody;
+@property (nonatomic, weak) id<EmailVCParentDelegate> delegate;
 
 @end

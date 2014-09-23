@@ -148,6 +148,7 @@
 {
   if (sender.state == UIGestureRecognizerStateEnded) {
     NARSendMessageViewController *sendVC = [[NARSendMessageViewController alloc] init];
+    sendVC.delegate = self;
     [self.navigationController pushViewController:sendVC animated:YES];
   }
 }

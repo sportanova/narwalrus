@@ -10,6 +10,7 @@
 
 @class NARTopic;
 @class NAREmailCell;
+@class NAREmail;
 
 @protocol EmailCellDelegate <NSObject>
 @optional
@@ -22,7 +23,11 @@
 - (void)flipFullSize;
 @end
 
-@interface NAREmailVCViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, EmailCellDelegate, UIGestureRecognizerDelegate>
+@protocol EmailVCParentDelegate <NSObject>
+- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender;
+@end
+
+@interface NAREmailVCViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, EmailCellDelegate, UIGestureRecognizerDelegate, EmailVCParentDelegate>
 @property(strong, atomic) NSURLSession *session;
 @property(strong,atomic) NARTopic *topic;
 @property(strong,atomic) NSString *userId;
