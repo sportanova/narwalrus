@@ -25,16 +25,18 @@
 
 @protocol EmailVCParentDelegate <NSObject>
 - (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender prepend:(bool)prepend;
+- (NSString *)getEmailAccountId;
 @end
 
 @interface NAREmailVCViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, EmailCellDelegate, UIGestureRecognizerDelegate, EmailVCParentDelegate>
 @property(strong, atomic) NSURLSession *session;
 @property(strong,atomic) NARTopic *topic;
 @property(strong,atomic) NSString *userId;
+@property(strong, nonatomic) NSString *emailAccountId;
 @property (assign, atomic) double lastResizeTime;
 @property(weak, atomic) NSString *serverUrl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
-- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId;
+- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId emailAccountId:(NSString *)emailAccountId;
 @end

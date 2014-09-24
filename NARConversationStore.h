@@ -14,5 +14,5 @@
 @property (nonatomic, readonly) NSArray *allConversations;
 + (instancetype)sharedStore;
 - (void)deleteStore;
-- (NARConversation *)createConversationWithRecipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients;
+- (NARConversation *)createConversationWithRecipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId;
 @end

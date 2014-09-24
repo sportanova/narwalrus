@@ -45,8 +45,8 @@
   [self.navigationController pushViewController:topicsVC animated:YES];
 }
 
-- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients {
-  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients];
+- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId{
+  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId];
   
   NSInteger lastRow = [[[NARConversationStore sharedStore] allConversations] indexOfObject:newConversation];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -113,9 +113,10 @@
          NSString *recipientsHash = [conversationDict objectForKey:@"recipientsHash"];
 
          NSArray *recipientsJSON = [conversationDict objectForKey:@"recipients"];
-         NSString * recipients = [[recipientsJSON valueForKey:@"description"] componentsJoinedByString:@", "];
+         NSString *recipients = [[recipientsJSON valueForKey:@"description"] componentsJoinedByString:@", "];
+         NSString *emailAccountId = [conversationDict objectForKey:@"emailAccountId"];
 
-         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients];
+         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId];
        }
 
        [weakSelf.refreshControl endRefreshing];

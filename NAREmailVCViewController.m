@@ -24,6 +24,7 @@
 @synthesize topic = _topic;
 @synthesize lastResizeTime = _lastResizeTime;
 @synthesize userId = _userId;
+@synthesize emailAccountId = _emailAccountId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,11 +115,12 @@
   return cell;
 }
 
-- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId {
+- (instancetype)initWithTopic:(NARTopic *)topic userId:(NSString *)userId emailAccountId:(NSString *)emailAccountId {
   self = [super init];
   
   self.topic = topic;
   self.userId = userId;
+  self.emailAccountId = emailAccountId;
   self.serverUrl = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] serverUrl];
   
   self.lastResizeTime = CACurrentMediaTime();
@@ -129,6 +131,11 @@
   [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId];
   
   return self;
+}
+
+- (NSString *)getEmailAccountId
+{
+  return self.emailAccountId;
 }
 
 - (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender prepend:(bool)prepend

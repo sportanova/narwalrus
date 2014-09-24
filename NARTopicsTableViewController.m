@@ -46,9 +46,7 @@
   NSArray *topics = [[NARTopicStore sharedStore] allTopics];
   NARTopic *topic = topics[indexPath.row];
 
-//  NAREmailsViewController *emailsVC = [[NAREmailsViewController alloc] initWithTopic:topic userId:self.userId];
-//  [self.navigationController pushViewController:emailsVC animated:YES];
-  NAREmailVCViewController *emailVC = [[NAREmailVCViewController alloc] initWithTopic:topic userId:self.userId];
+  NAREmailVCViewController *emailVC = [[NAREmailVCViewController alloc] initWithTopic:topic userId:self.userId emailAccountId:self.conversation.emailAccountId];
   [self.navigationController pushViewController:emailVC animated:YES];
 }
 
