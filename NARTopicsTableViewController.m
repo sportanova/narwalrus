@@ -89,7 +89,7 @@
 }
 
 - (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash {
-  NSString *requestString = [NSString stringWithFormat:@"%@/topics/%@/%@", self.serverUrl, userId, hash];
+  NSString *requestString = [NSString stringWithFormat:@"%@/topics/ordered/%@/%@", self.serverUrl, userId, hash];
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   
