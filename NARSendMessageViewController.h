@@ -12,5 +12,7 @@
 @interface NARSendMessageViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *messageBody;
 @property (nonatomic, weak) id<EmailVCParentDelegate> delegate;
+@property(strong, atomic) NSURLSession *session;
+@property(weak, atomic) NSString *serverUrl;
 
 @end
