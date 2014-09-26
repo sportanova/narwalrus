@@ -45,8 +45,9 @@
   [self.navigationController pushViewController:topicsVC animated:YES];
 }
 
-- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId{
-  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId];
+- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount
+{
+  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount];
   
   NSInteger lastRow = [[[NARConversationStore sharedStore] allConversations] indexOfObject:newConversation];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -115,8 +116,10 @@
          NSArray *recipientsJSON = [conversationDict objectForKey:@"recipients"];
          NSString *recipients = [[recipientsJSON valueForKey:@"description"] componentsJoinedByString:@", "];
          NSString *emailAccountId = [conversationDict objectForKey:@"emailAccountId"];
+         NSInteger topicCount = (NSUInteger)[conversationDict objectForKey:@"topicCount"];
+         NSInteger emailCount = (NSUInteger)[conversationDict objectForKey:@"emailCount"];
 
-         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId];
+         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount];
        }
 
        [weakSelf.refreshControl endRefreshing];
