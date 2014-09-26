@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recipientCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *topicCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *recipientsIcon;
 
 @end

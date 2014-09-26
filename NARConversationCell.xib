@@ -27,23 +27,35 @@
                         <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ee-bh-hbg">
-                        <rect key="frame" x="139" y="44" width="42" height="21"/>
+                        <rect key="frame" x="160" y="44" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llJ-84-PcK">
-                        <rect key="frame" x="258" y="44" width="42" height="21"/>
+                        <rect key="frame" x="264" y="44" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSh-Y4-s6Z">
-                        <rect key="frame" x="34" y="44" width="42" height="21"/>
+                        <rect key="frame" x="61" y="44" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_16570.png" translatesAutoresizingMaskIntoConstraints="NO" id="2cV-eb-0E8">
+                        <rect key="frame" x="20" y="40" width="33" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_43333.png" translatesAutoresizingMaskIntoConstraints="NO" id="EFn-2c-E6i">
+                        <rect key="frame" x="227" y="38" width="33" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_6415.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zjx-CO-ukb">
+                        <rect key="frame" x="122" y="43" width="33" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="3Fg-hh-teu" secondAttribute="trailing" id="1oj-f8-gxA"/>
@@ -54,9 +66,15 @@
             <connections>
                 <outlet property="emailCountLabel" destination="llJ-84-PcK" id="4pu-NS-XB3"/>
                 <outlet property="recipientCountLabel" destination="pSh-Y4-s6Z" id="B32-Ec-e1s"/>
+                <outlet property="recipientsIcon" destination="2cV-eb-0E8" id="54U-Hv-6hW"/>
                 <outlet property="recipientsLabel" destination="uZm-29-PU1" id="ozn-Ns-1ps"/>
                 <outlet property="topicCountLabel" destination="2Ee-bh-hbg" id="Xib-7L-gEy"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_16570.png" width="1200" height="1200"/>
+        <image name="icon_43333.png" width="1200" height="1200"/>
+        <image name="icon_6415.png" width="1200" height="1200"/>
+    </resources>
 </document>

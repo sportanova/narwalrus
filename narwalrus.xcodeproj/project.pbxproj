@@ -19,6 +19,11 @@
 		548B96D319BE95610022BE35 /* NARSendMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */; };
 		548B96D819D53D8C0022BE35 /* icon_16570.png in Resources */ = {isa = PBXBuildFile; fileRef = 548B96D619D53D8C0022BE35 /* icon_16570.png */; };
 		548B96D919D53D8C0022BE35 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 548B96D719D53D8C0022BE35 /* license.txt */; };
+		548B96DF19D541D70022BE35 /* icon_43333.png in Resources */ = {isa = PBXBuildFile; fileRef = 548B96DC19D541D70022BE35 /* icon_43333.png */; };
+		548B96E019D541D70022BE35 /* icon_43333.svg in Resources */ = {isa = PBXBuildFile; fileRef = 548B96DD19D541D70022BE35 /* icon_43333.svg */; };
+		548B96E119D541D70022BE35 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 548B96DE19D541D70022BE35 /* license.txt */; };
+		548B96E619D544880022BE35 /* icon_6415.png in Resources */ = {isa = PBXBuildFile; fileRef = 548B96E419D544880022BE35 /* icon_6415.png */; };
+		548B96E719D544880022BE35 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 548B96E519D544880022BE35 /* license.txt */; };
 		549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
 		549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D0195D33D400DDE088 /* CoreGraphics.framework */; };
 		549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
@@ -71,6 +76,11 @@
 		548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARSendMessageViewController.xib; sourceTree = "<group>"; };
 		548B96D619D53D8C0022BE35 /* icon_16570.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16570.png; sourceTree = "<group>"; };
 		548B96D719D53D8C0022BE35 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		548B96DC19D541D70022BE35 /* icon_43333.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_43333.png; sourceTree = "<group>"; };
+		548B96DD19D541D70022BE35 /* icon_43333.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_43333.svg; sourceTree = "<group>"; };
+		548B96DE19D541D70022BE35 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		548B96E419D544880022BE35 /* icon_6415.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_6415.png; sourceTree = "<group>"; };
+		548B96E519D544880022BE35 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		549A20CB195D33D400DDE088 /* narwalrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = narwalrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549A20CE195D33D400DDE088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		549A20D0195D33D400DDE088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +168,8 @@
 		548B96D419D53CC20022BE35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				548B96E219D5446B0022BE35 /* thought_bubble_icon */,
+				548B96DA19D5406C0022BE35 /* mail_icon */,
 				548B96D519D53D8C0022BE35 /* people_icon */,
 			);
 			name = images;
@@ -173,17 +185,54 @@
 			path = resources/people_icon;
 			sourceTree = "<group>";
 		};
+		548B96DA19D5406C0022BE35 /* mail_icon */ = {
+			isa = PBXGroup;
+			children = (
+				548B96DB19D541D70022BE35 /* icon_43333 */,
+			);
+			name = mail_icon;
+			sourceTree = "<group>";
+		};
+		548B96DB19D541D70022BE35 /* icon_43333 */ = {
+			isa = PBXGroup;
+			children = (
+				548B96DC19D541D70022BE35 /* icon_43333.png */,
+				548B96DD19D541D70022BE35 /* icon_43333.svg */,
+				548B96DE19D541D70022BE35 /* license.txt */,
+			);
+			name = icon_43333;
+			path = resources/icon_43333;
+			sourceTree = "<group>";
+		};
+		548B96E219D5446B0022BE35 /* thought_bubble_icon */ = {
+			isa = PBXGroup;
+			children = (
+				548B96E319D544880022BE35 /* icon_6415 */,
+			);
+			name = thought_bubble_icon;
+			sourceTree = "<group>";
+		};
+		548B96E319D544880022BE35 /* icon_6415 */ = {
+			isa = PBXGroup;
+			children = (
+				548B96E419D544880022BE35 /* icon_6415.png */,
+				548B96E519D544880022BE35 /* license.txt */,
+			);
+			name = icon_6415;
+			path = resources/icon_6415;
+			sourceTree = "<group>";
+		};
 		549A20C2195D33D400DDE088 = {
 			isa = PBXGroup;
 			children = (
 				549CB41E199B21300071EB70 /* NARTopicsTableViewController.h */,
 				549CB41F199B21300071EB70 /* NARTopicsTableViewController.m */,
-				540DC38F1995C16B00005AEC /* NARConversationCell.xib */,
 				549CB421199B2B0B0071EB70 /* NARTopicCell.xib */,
 				549CB423199B2BAA0071EB70 /* NARTopicCell.h */,
 				549CB424199B2BAA0071EB70 /* NARTopicCell.m */,
 				5409CBCF1995B7E300D95ECE /* NARConversationCell.h */,
 				5409CBD01995B7E300D95ECE /* NARConversationCell.m */,
+				540DC38F1995C16B00005AEC /* NARConversationCell.xib */,
 				549CB426199BC3B90071EB70 /* NAREmailCell.h */,
 				549CB427199BC3B90071EB70 /* NAREmailCell.m */,
 				549CB428199BC3B90071EB70 /* NAREmailCell.xib */,
@@ -354,16 +403,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548B96E019D541D70022BE35 /* icon_43333.svg in Resources */,
 				548B96D919D53D8C0022BE35 /* license.txt in Resources */,
+				548B96DF19D541D70022BE35 /* icon_43333.png in Resources */,
 				548B96D819D53D8C0022BE35 /* icon_16570.png in Resources */,
 				5438246B199724B600376A10 /* Bariol_Regular.otf in Resources */,
 				549CB422199B2B0B0071EB70 /* NARTopicCell.xib in Resources */,
 				54382469199716FB00376A10 /* Montserrat-Regular.ttf in Resources */,
 				54382468199716FB00376A10 /* Montserrat-Bold.ttf in Resources */,
 				546227B619BD2683004A9A40 /* NAREmailVCViewController.xib in Resources */,
+				548B96E619D544880022BE35 /* icon_6415.png in Resources */,
 				549A20D9195D33D500DDE088 /* InfoPlist.strings in Resources */,
 				540DC3901995C16B00005AEC /* NARConversationCell.xib in Resources */,
+				548B96E719D544880022BE35 /* license.txt in Resources */,
 				540DC39419970EDC00005AEC /* Franchise-Bold.otf in Resources */,
+				548B96E119D541D70022BE35 /* license.txt in Resources */,
 				549A20E1195D33D500DDE088 /* Images.xcassets in Resources */,
 				549CB42A199BC3B90071EB70 /* NAREmailCell.xib in Resources */,
 				548B96D319BE95610022BE35 /* NARSendMessageViewController.xib in Resources */,

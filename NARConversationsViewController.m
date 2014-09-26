@@ -74,7 +74,7 @@
   
   cell.topicCountLabel.text = [NSString stringWithFormat:@"%d", conversation.topicCount];
   cell.emailCountLabel.text = [NSString stringWithFormat:@"%d", conversation.emailCount];
-  
+
   return cell;
 }
 
