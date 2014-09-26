@@ -50,8 +50,8 @@
   [self.navigationController pushViewController:emailVC animated:YES];
 }
 
-- (NARTopic *)addNewTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId {
-  NARTopic *newTopic = [[NARTopicStore sharedStore] createTopicWithSubject:subject threadId:threadId];
+- (NARTopic *)addNewTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount {
+  NARTopic *newTopic = [[NARTopicStore sharedStore] createTopicWithSubject:subject threadId:threadId emailCount:emailCount];
   
   NSInteger lastRow = [[[NARTopicStore sharedStore] allTopics] indexOfObject:newTopic];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -101,8 +101,9 @@
       for(NSDictionary *topicDict in jsonArray) {
         NSString *subject = [topicDict objectForKey:@"subject"];
         NSString *threadId = [topicDict objectForKey:@"threadId"];
+        NSInteger emailCount = (NSUInteger)[topicDict objectForKey:@"emailCount"];
         
-        [self addNewTopicWithSubject:subject threadId:threadId];
+        [self addNewTopicWithSubject:subject threadId:threadId emailCount:emailCount];
       }
     });
   }];

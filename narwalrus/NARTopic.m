@@ -11,19 +11,23 @@
 @implementation NARTopic
 @synthesize subject = _subject;
 @synthesize threadId = _threadId;
+@synthesize emailCount = _emailCount;
 
-+ (instancetype)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId {
-  NARTopic *topic = [[self alloc] initWithTopicSubject:subject threadId:threadId];
++ (instancetype)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount
+{
+  NARTopic *topic = [[self alloc] initWithTopicSubject:subject threadId:threadId emailCount:emailCount];
   return topic;
 }
 
 // Designated initializer for NARTopic
-- (instancetype)initWithTopicSubject:(NSString *)subject threadId:(NSString *)threadId {
+- (instancetype)initWithTopicSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount
+{
   self = [super init];
   
   if (self) {
     self.subject = subject;
     self.threadId = threadId;
+    self.emailCount = emailCount;
   }
   
   return self;

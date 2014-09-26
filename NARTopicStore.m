@@ -41,8 +41,9 @@
   return self;
 }
 
-- (NARTopic *)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId {
-  NARTopic *topic = [NARTopic createTopicWithSubject:subject threadId:threadId];
+- (NARTopic *)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount
+{
+  NARTopic *topic = [NARTopic createTopicWithSubject:subject threadId:threadId emailCount:emailCount];
   
   [self.privateTopics addObject:topic];
   
