@@ -20,13 +20,14 @@
   
   self.userId = @"bbe1131d-3be5-4997-a1ee-295f6f2c9dbf";
   
-//  self.serverUrl = @"http://narmal.com";
-  self.serverUrl = @"http://localhost:8080"; // local
+  self.serverUrl = @"http://narmal.com";
+//  self.serverUrl = @"http://localhost:8080"; // local
   
     // Override point for customization after application launch.
   NARConversationsViewController *conversationsVC = [[NARConversationsViewController alloc] init];
   UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:conversationsVC];
   
+// view font names
 //  for (NSString* family in [UIFont familyNames])
 //  {
 //    NSLog(@"%@", family);
