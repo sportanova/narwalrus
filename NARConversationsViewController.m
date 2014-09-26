@@ -70,7 +70,17 @@
   cell.recipientsLabel.text = [conversation recipients];
   cell.recipientsLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:18.0f];
   
+  cell.recipientCountLabel.text = @"3";
+  
+  cell.topicCountLabel.text = [NSString stringWithFormat:@"%d", conversation.topicCount];
+  cell.emailCountLabel.text = [NSString stringWithFormat:@"%d", conversation.emailCount];
+  
   return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return 70.0;
 }
 
 - (void)viewDidLoad {
@@ -116,8 +126,8 @@
          NSArray *recipientsJSON = [conversationDict objectForKey:@"recipients"];
          NSString *recipients = [[recipientsJSON valueForKey:@"description"] componentsJoinedByString:@", "];
          NSString *emailAccountId = [conversationDict objectForKey:@"emailAccountId"];
-         NSInteger topicCount = (NSUInteger)[conversationDict objectForKey:@"topicCount"];
-         NSInteger emailCount = (NSUInteger)[conversationDict objectForKey:@"emailCount"];
+         NSInteger topicCount = [[conversationDict objectForKey:@"topicCount"] integerValue];
+         NSInteger emailCount = [[conversationDict objectForKey:@"emailCount"] integerValue];
 
          [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount];
        }

@@ -10,7 +10,9 @@
 
 @interface NARConversationCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *emailCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recipientsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recipientCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *topicCountLabel;
 
 @end

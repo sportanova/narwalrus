@@ -17,6 +17,8 @@
 		546227B619BD2683004A9A40 /* NAREmailVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546227B419BD2683004A9A40 /* NAREmailVCViewController.xib */; };
 		548B96D219BE95610022BE35 /* NARSendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B96D019BE95610022BE35 /* NARSendMessageViewController.m */; };
 		548B96D319BE95610022BE35 /* NARSendMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */; };
+		548B96D819D53D8C0022BE35 /* icon_16570.png in Resources */ = {isa = PBXBuildFile; fileRef = 548B96D619D53D8C0022BE35 /* icon_16570.png */; };
+		548B96D919D53D8C0022BE35 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 548B96D719D53D8C0022BE35 /* license.txt */; };
 		549A20CF195D33D400DDE088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20CE195D33D400DDE088 /* Foundation.framework */; };
 		549A20D1195D33D400DDE088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D0195D33D400DDE088 /* CoreGraphics.framework */; };
 		549A20D3195D33D400DDE088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549A20D2195D33D400DDE088 /* UIKit.framework */; };
@@ -67,6 +69,8 @@
 		548B96CF19BE95610022BE35 /* NARSendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARSendMessageViewController.h; sourceTree = "<group>"; };
 		548B96D019BE95610022BE35 /* NARSendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NARSendMessageViewController.m; sourceTree = "<group>"; };
 		548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NARSendMessageViewController.xib; sourceTree = "<group>"; };
+		548B96D619D53D8C0022BE35 /* icon_16570.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16570.png; sourceTree = "<group>"; };
+		548B96D719D53D8C0022BE35 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		549A20CB195D33D400DDE088 /* narwalrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = narwalrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549A20CE195D33D400DDE088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		549A20D0195D33D400DDE088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +138,7 @@
 		540DC39119970D3200005AEC /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				548B96D419D53CC20022BE35 /* images */,
 				540DC39219970D3C00005AEC /* fonts */,
 			);
 			name = resources;
@@ -148,6 +153,24 @@
 				540DC39319970E1800005AEC /* Franchise-Bold.otf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		548B96D419D53CC20022BE35 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				548B96D519D53D8C0022BE35 /* people_icon */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		548B96D519D53D8C0022BE35 /* people_icon */ = {
+			isa = PBXGroup;
+			children = (
+				548B96D619D53D8C0022BE35 /* icon_16570.png */,
+				548B96D719D53D8C0022BE35 /* license.txt */,
+			);
+			name = people_icon;
+			path = resources/people_icon;
 			sourceTree = "<group>";
 		};
 		549A20C2195D33D400DDE088 = {
@@ -331,6 +354,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548B96D919D53D8C0022BE35 /* license.txt in Resources */,
+				548B96D819D53D8C0022BE35 /* icon_16570.png in Resources */,
 				5438246B199724B600376A10 /* Bariol_Regular.otf in Resources */,
 				549CB422199B2B0B0071EB70 /* NARTopicCell.xib in Resources */,
 				54382469199716FB00376A10 /* Montserrat-Regular.ttf in Resources */,
