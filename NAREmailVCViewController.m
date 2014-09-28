@@ -106,7 +106,7 @@
   NAREmailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NAREmailCell" forIndexPath:indexPath];
   NAREmail *email = [self getEmailAtIndexPath:indexPath];
   
-  [cell configureCellWithBody:[email htmlBody] sender:[email sender]];
+  [cell configureCellWithHtmlBody:[email htmlBody] textBody:[email textBody] sender:[email sender]];
   cell.email = email;
   
   cell.delegate = self;

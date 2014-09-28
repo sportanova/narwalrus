@@ -11,7 +11,7 @@
 
 @implementation NAREmailCell
 
-- (void)configureCellWithBody:(NSString *)body sender:(NSString *)sender
+- (void)configureCellWithHtmlBody:(NSString *)htmlBody textBody:(NSString *)textBody sender:(NSString *)sender
 {
   UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] init];
   [doubleTap setNumberOfTapsRequired:2];
@@ -19,9 +19,12 @@
   [doubleTap addTarget:self action:@selector(handleDoubleTap:)];
   [self.webView addGestureRecognizer:doubleTap];
   
+  NSLog(@"HTML BODY %@", htmlBody);
+  NSLog(@"TEXT BODY %@", textBody);
+  
 //  NSString *html = [NSString stringWithFormat:@"%@ %@", @"<meta name='viewport' content='width=320,user-scalable=yes,initial-scale=1.0'>", body];
 
-  [self.webView loadHTMLString:body baseURL:nil]; // <meta name="viewport" content="width=320,user-scalable=yes,initial-scale=1.0"> http://stackoverflow.com/questions/14181543/obj-c-uiwebview-responsive-html  <meta name="viewport" content="width=device-width, initial-scale=1"> goes in head tag
+  [self.webView loadHTMLString:htmlBody baseURL:nil]; // <meta name="viewport" content="width=320,user-scalable=yes,initial-scale=1.0"> http://stackoverflow.com/questions/14181543/obj-c-uiwebview-responsive-html  <meta name="viewport" content="width=device-width, initial-scale=1"> goes in head tag
   self.webView.delegate = self;
   
   self.senderLabel.text = sender;

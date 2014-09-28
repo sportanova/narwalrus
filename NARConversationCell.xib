@@ -20,12 +20,6 @@
                         <color key="textColor" red="0.98244938352580113" green="1" blue="0.96422053882921377" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fg-hh-teu">
-                        <rect key="frame" x="0.0" y="73" width="320" height="2"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                        <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ee-bh-hbg">
                         <rect key="frame" x="160" y="44" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -57,10 +51,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="3Fg-hh-teu" secondAttribute="trailing" id="1oj-f8-gxA"/>
-                    <constraint firstItem="3Fg-hh-teu" firstAttribute="leading" secondItem="UcA-IT-Apo" secondAttribute="leading" id="uks-mJ-ogi"/>
-                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
             <connections>

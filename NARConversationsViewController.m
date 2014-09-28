@@ -93,7 +93,10 @@
   self.view.backgroundColor = [UIColor colorWithRed:108.0f/255.0f green:122.0f/255.0f blue:137.0f/255.0f alpha:1.0f];
 
   UINib *nib = [UINib nibWithNibName:@"NARConversationCell" bundle:nil];
-  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+//  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+  self.tableView.separatorColor = [UIColor colorWithRed:44.0f/255.0f green:62.0f/255.0f blue:80.0f/255.0f alpha:1.0f];;
+  self.tableView.separatorInset = UIEdgeInsetsZero;
   
   [self.tableView registerNib:nib forCellReuseIdentifier:@"NARConversationCell"];
 }
