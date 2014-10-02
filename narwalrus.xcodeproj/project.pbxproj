@@ -233,6 +233,7 @@
 				54B2B12E196A9EA500A6EEC3 /* NARConversationStore.h */,
 			);
 			name = ModelStores;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		548B96E919D7BEDD0022BE35 /* TableCells */ = {
@@ -249,6 +250,7 @@
 				549CB424199B2BAA0071EB70 /* NARTopicCell.m */,
 			);
 			name = TableCells;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		548B96EA19D7C19B0022BE35 /* ViewControllers */ = {
@@ -266,6 +268,7 @@
 				548B96D119BE95610022BE35 /* NARSendMessageViewController.xib */,
 			);
 			name = ViewControllers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		548B96EB19D7C1C70022BE35 /* Models */ = {
@@ -279,15 +282,12 @@
 				54B2B140196EA9F700A6EEC3 /* NAREmail.m */,
 			);
 			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		549A20C2195D33D400DDE088 = {
 			isa = PBXGroup;
 			children = (
-				548B96EB19D7C1C70022BE35 /* Models */,
-				548B96EA19D7C19B0022BE35 /* ViewControllers */,
-				548B96E919D7BEDD0022BE35 /* TableCells */,
-				548B96E819D7BEA20022BE35 /* ModelStores */,
 				549A20D4195D33D400DDE088 /* narwalrus */,
 				549A20ED195D33D500DDE088 /* narwalrusTests */,
 				549A20CD195D33D400DDE088 /* Frameworks */,
@@ -318,6 +318,10 @@
 		549A20D4195D33D400DDE088 /* narwalrus */ = {
 			isa = PBXGroup;
 			children = (
+				548B96EB19D7C1C70022BE35 /* Models */,
+				548B96EA19D7C19B0022BE35 /* ViewControllers */,
+				548B96E919D7BEDD0022BE35 /* TableCells */,
+				548B96E819D7BEA20022BE35 /* ModelStores */,
 				540DC39119970D3200005AEC /* resources */,
 				549A20DD195D33D500DDE088 /* NARAppDelegate.h */,
 				549A20DE195D33D500DDE088 /* NARAppDelegate.m */,

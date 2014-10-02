@@ -67,10 +67,11 @@
   NSArray *conversations = [[NARConversationStore sharedStore] allConversations];
   NARConversation *conversation = conversations[indexPath.row];
   
-  cell.recipientsLabel.text = [conversation recipients];
+  cell.recipientsLabel.text = [conversation recipientsNames];
   cell.recipientsLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:18.0f];
   
-  cell.recipientCountLabel.text = @"3";
+  NSInteger recipientCount = (unsigned long)[[conversation recipientsEmailAddresses] count];
+  cell.recipientCountLabel.text = [NSString stringWithFormat:@"%lu", recipientCount];
   
   cell.topicCountLabel.text = [NSString stringWithFormat:@"%d", conversation.topicCount];
   cell.emailCountLabel.text = [NSString stringWithFormat:@"%d", conversation.emailCount];
@@ -126,8 +127,7 @@
          NSString *subject = [conversationDict objectForKey:@"subject"];
          NSString *recipientsHash = [conversationDict objectForKey:@"recipientsHash"];
 
-         NSArray *recipientsJSON = [conversationDict objectForKey:@"recipients"];
-         NSString *recipients = [[recipientsJSON valueForKey:@"description"] componentsJoinedByString:@", "];
+         NSDictionary *recipients = [conversationDict objectForKey:@"recipients"];
          NSString *emailAccountId = [conversationDict objectForKey:@"emailAccountId"];
          NSInteger topicCount = [[conversationDict objectForKey:@"topicCount"] integerValue];
          NSInteger emailCount = [[conversationDict objectForKey:@"emailCount"] integerValue];
