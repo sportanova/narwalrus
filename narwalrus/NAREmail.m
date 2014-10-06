@@ -18,7 +18,7 @@
 @synthesize sender = _sender;
 
 + (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSString *)sender
+  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender
 {
   NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody
   sender:sender];
@@ -26,7 +26,7 @@
 }
 
 - (instancetype)initWithEmailSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSString *)sender
+  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender
 {
   self = [super init];
   
