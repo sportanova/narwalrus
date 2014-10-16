@@ -45,7 +45,7 @@
 - (void)sendMessage
 {
   NAREmail *lastEmail = [[[NAREmailStore sharedStore] allEmails] lastObject];
-  NAREmail *newEmail = [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@"sportano@gmail.com" prepend:true]; // TODO: make this dynaic
+  NAREmail *newEmail = [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@{@"sportano@gmail.com":@"sportano@gmail.com"} prepend:true]; // TODO: make this dynaic
   
   NSDictionary *emailDict = @{ // TODO - this throws an error if now recipientsHash / recipientsSet???
     @"subject": newEmail.subject,
@@ -56,8 +56,8 @@
     @"cc": @"",
     @"bcc": @"",
     @"userId": [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId],
-    @"sender": @"",
-    @"threadId": @9,
+    @"sender": @{@"sportano@gmail.com":@"sportano@gmail.com"},
+    @"threadId": lastEmail.threadId,
     @"id": @1,
     @"ts": @1
   };

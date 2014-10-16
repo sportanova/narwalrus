@@ -138,9 +138,9 @@
   return self.emailAccountId;
 }
 
-- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender prepend:(bool)prepend
+- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender prepend:(bool)prepend
 {
-  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:prepend];
+  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipientsSet:recipientsSet threadId:threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:prepend];
   
   NSInteger lastRow = [[[NAREmailStore sharedStore] allEmails] indexOfObject:newEmail];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -179,7 +179,9 @@
          NSDictionary *sender = [EmailDict objectForKey:@"sender"];
          NSMutableArray *recipientsSet = [EmailDict objectForKey:@"recipients"];
          
-         [self addNewEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:false];
+         NSLog(@"threadId %@", threadId);
+         
+         [self addNewEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet threadId:threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:false];
        }
      });
    }];

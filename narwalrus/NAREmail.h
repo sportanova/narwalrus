@@ -16,15 +16,16 @@
 @property NSString* recipientsHash;
 @property NSMutableArray* recipientsSet;
 @property NSString* userId;
+@property NSString* threadId;
 @property NSString* textBody;
 @property NSString* htmlBody;
 @property (assign) NSInteger fullSize;
 @property (assign) bool isFullSize;
 
-+ (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
++ (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender;
 
-- (instancetype)initWithEmailSubject:(NSString *)name recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
+- (instancetype)initWithEmailSubject:(NSString *)name recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
   htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender;
 - (NSString *)subject;
 
