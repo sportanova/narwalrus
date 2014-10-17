@@ -17,17 +17,20 @@
 @synthesize isFullSize = _isFullSize;
 @synthesize sender = _sender;
 @synthesize threadId = _threadId;
+@synthesize messageId = _messageId;
+@synthesize inReplyTo = _inReplyTo;
+@synthesize references = _references;
 
 + (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender
+  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references
 {
   NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody
-  sender:sender];
+  sender:sender messageId:messageId inReplyTo:inReplyTo references:references];
   return newEmail;
 }
 
 - (instancetype)initWithEmailSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender
+  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references
 {
   self = [super init];
   
@@ -39,6 +42,10 @@
     self.htmlBody = htmlBody;
     self.sender = sender;
     self.isFullSize = false;
+    self.threadId = threadId;
+    self.messageId = messageId;
+    self.inReplyTo = inReplyTo;
+    self.references = references;
   }
   
   return self;

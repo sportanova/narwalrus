@@ -24,7 +24,7 @@
 @end
 
 @protocol EmailVCParentDelegate <NSObject>
-- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender prepend:(bool)prepend;
+- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender prepend:(bool)prepend messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references;
 - (NSString *)getEmailAccountId;
 @end
 

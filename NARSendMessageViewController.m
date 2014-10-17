@@ -45,7 +45,25 @@
 - (void)sendMessage
 {
   NAREmail *lastEmail = [[[NAREmailStore sharedStore] allEmails] lastObject];
-  NAREmail *newEmail = [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@{@"sportano@gmail.com":@"sportano@gmail.com"} prepend:true]; // TODO: make this dynaic
+  NAREmail *newEmail = [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet threadId:lastEmail.threadId recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@{@"sportano@gmail.com":@"sportano@gmail.com"} prepend:true messageId:lastEmail.messageId inReplyTo:lastEmail.inReplyTo references:lastEmail.references]; // TODO: make this dynaic
+
+  NSMutableString *inReplyTo = nil;
+  if(lastEmail.inReplyTo == NULL) {
+    inReplyTo = [NSMutableString stringWithString:@"firstReply"];
+  }
+  else {
+    inReplyTo = [NSMutableString stringWithString:lastEmail.inReplyTo];
+  }
+
+  NSMutableString *references = nil;
+  if(lastEmail.references == NULL) {
+    references = [NSMutableString stringWithString:@"firstReply"];
+  }
+  else {
+    references = [NSMutableString stringWithString:lastEmail.references];
+  }
+  
+  NSLog(@"references %@", references);
   
   NSDictionary *emailDict = @{ // TODO - this throws an error if now recipientsHash / recipientsSet???
     @"subject": newEmail.subject,
@@ -59,7 +77,10 @@
     @"sender": @{@"sportano@gmail.com":@"sportano@gmail.com"},
     @"threadId": lastEmail.threadId,
     @"id": @1,
-    @"ts": @1
+    @"ts": @1,
+    @"messageId": lastEmail.messageId,
+    @"inReplyTo": inReplyTo,
+    @"references": references
   };
   
   NSLog(@"emailDict %@", emailDict);

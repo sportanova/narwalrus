@@ -41,10 +41,9 @@
   return self;
 }
 
-- (NAREmail *)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender prepend:(bool)prepend
+- (NAREmail *)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSString *)sender prepend:(bool)prepend messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references
 {
-  NAREmail *email = [NAREmail createEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody
-  sender:sender];
+  NAREmail *email = [NAREmail createEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender messageId:messageId inReplyTo:inReplyTo references:references];
   
   if(prepend == true) {
     [self.privateEmails insertObject:email atIndex:0];

@@ -19,14 +19,17 @@
 @property NSString* threadId;
 @property NSString* textBody;
 @property NSString* htmlBody;
+@property NSString* messageId;
+@property NSString* inReplyTo;
+@property NSString* references;
 @property (assign) NSInteger fullSize;
 @property (assign) bool isFullSize;
 
-+ (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender;
++ (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references;
 
 - (instancetype)initWithEmailSubject:(NSString *)name recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender;
+  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references;
+
 - (NSString *)subject;
 
 @end
