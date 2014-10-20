@@ -17,7 +17,7 @@
 #import "NARSendMessageViewController.h"
 
 @interface NAREmailVCViewController ()
-
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation NAREmailVCViewController
@@ -38,6 +38,10 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  self.refreshControl = [[UIRefreshControl alloc] init];
+  [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+  [self.tableView addSubview:self.refreshControl];
   
   UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] init];
   [singleTap setNumberOfTapsRequired:1];
@@ -128,7 +132,7 @@
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   self.session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
   
-  [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId];
+  [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId ts:nil];
   
   return self;
 }
@@ -138,14 +142,12 @@
   return self.emailAccountId;
 }
 
-- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender prepend:(bool)prepend messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references
+- (NAREmail *)addNewEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender prepend:(bool)prepend messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references ts:(NSString *)ts
 {
-  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipientsSet:recipientsSet threadId:threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:prepend messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references];
+  NAREmail *newEmail = [[NAREmailStore sharedStore] createEmailWithSubject:subject recipientsSet:recipientsSet threadId:threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:prepend messageId:messageId inReplyTo:inReplyTo references:references ts:ts];
   
   NSInteger lastRow = [[[NAREmailStore sharedStore] allEmails] indexOfObject:newEmail];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-  
-//  NSLog(@"!!!!!!!!!! newEmail %@", newEmail);
   
   [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
   
@@ -161,19 +163,31 @@
   }
 }
 
-- (void)fetchEmailsWithUserId:(NSString *)userId threadId:(NSString *)threadId {
-  NSString *requestString = [NSString stringWithFormat: @"%@/emails/%@/%@", self.serverUrl, userId, threadId];
+- (void)fetchEmailsWithUserId:(NSString *)userId threadId:(NSString *)threadId ts:(NSString *)ts {
+  
+//  NSString *requestString = [NSString stringWithFormat: @"%@/emails/%@/%@", self.serverUrl, userId, threadId];
+  
+  NSMutableString *requestString = nil;
+  if(ts != nil) {
+    requestString = [NSMutableString stringWithFormat:@"%@/emails/%@/%@?ts=%@", self.serverUrl, userId, threadId, ts];
+  }
+  else {
+    requestString = [NSMutableString stringWithFormat:@"%@/emails/%@/%@", self.serverUrl, userId, threadId];
+  }
   
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+     NAREmailVCViewController * __weak weakSelf = self;
+
      NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
      dispatch_async(dispatch_get_main_queue(), ^{
        for(NSDictionary *EmailDict in jsonArray) {
          NSString *subject = [EmailDict objectForKey:@"subject"];
          NSString *recipientsHash = [EmailDict objectForKey:@"recipientsHash"];
+         NSString *ts = [EmailDict objectForKey:@"ts"];
          NSString *textBody = [EmailDict objectForKey:@"textBody"];
          NSString *htmlBody = [EmailDict objectForKey:@"htmlBody"];
          NSString *messageId = [EmailDict objectForKey:@"messageId"];
@@ -182,11 +196,19 @@
          NSDictionary *sender = [EmailDict objectForKey:@"sender"];
          NSMutableArray *recipientsSet = [EmailDict objectForKey:@"recipients"];
          
-         [self addNewEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet threadId:threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:false messageId:messageId inReplyTo:inReplyTo references:references];
+         [self addNewEmailWithSubject:subject recipientsSet:(NSMutableArray *)recipientsSet threadId:threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody sender:sender prepend:false messageId:messageId inReplyTo:inReplyTo references:references ts:ts];
        }
+
+       [weakSelf.refreshControl endRefreshing];
      });
    }];
   [dataTask resume];
+}
+
+- (void)refresh:(id)sender
+{
+  NSString *lastEmailTime = [[[[NAREmailStore sharedStore] allEmails] lastObject] ts];
+  [self fetchEmailsWithUserId:self.userId threadId:self.topic.threadId ts:lastEmailTime];
 }
 
 

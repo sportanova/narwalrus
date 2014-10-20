@@ -45,7 +45,7 @@
 - (void)sendMessage
 {
   NAREmail *lastEmail = [[[NAREmailStore sharedStore] allEmails] lastObject];
-  NAREmail *newEmail = [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet threadId:lastEmail.threadId recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@{@"sportano@gmail.com":@"sportano@gmail.com"} prepend:true messageId:lastEmail.messageId inReplyTo:lastEmail.inReplyTo references:lastEmail.references]; // TODO: make this dynaic
+  NAREmail *newEmail = [self.delegate addNewEmailWithSubject:lastEmail.subject recipientsSet:lastEmail.recipientsSet threadId:lastEmail.threadId recipientsHash:lastEmail.recipientsHash textBody:self.messageBody.text htmlBody:self.messageBody.text sender:@{@"sportano@gmail.com":@"sportano@gmail.com"} prepend:true messageId:lastEmail.messageId inReplyTo:lastEmail.inReplyTo references:lastEmail.references ts:lastEmail.ts]; // TODO: make this dynaic
 
   NSMutableString *inReplyTo = nil;
   if(lastEmail.inReplyTo == NULL) {

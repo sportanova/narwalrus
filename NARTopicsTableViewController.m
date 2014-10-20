@@ -91,8 +91,8 @@
   [self.tableView registerNib:nib forCellReuseIdentifier:@"NARTopicCell"];
 }
 
-- (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash lastTime:(NSString *)time deleteStore:(BOOL)deleteStore {
-//  NSString *requestString = [NSString stringWithFormat:@"%@/topics/ordered/%@/%@", self.serverUrl, userId, hash];
+- (void)fetchTopicsWithUserId:(NSString *)userId recipientsHash:(NSString *)hash lastTime:(NSString *)time deleteStore:(BOOL)deleteStore
+{
   NSMutableString *requestString = nil;
   if(time != nil) {
     requestString = [NSMutableString stringWithFormat:@"%@/topics/ordered/%@/%@?ts=%@", self.serverUrl, userId, hash, time];

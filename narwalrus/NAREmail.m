@@ -20,17 +20,18 @@
 @synthesize messageId = _messageId;
 @synthesize inReplyTo = _inReplyTo;
 @synthesize references = _references;
+@synthesize ts = _ts;
 
 + (instancetype)createEmailWithSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references
+  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references ts:(NSString *)ts
 {
   NAREmail *newEmail = [[self alloc] initWithEmailSubject:subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:recipientsHash textBody:textBody htmlBody:htmlBody
-  sender:sender messageId:messageId inReplyTo:inReplyTo references:references];
+  sender:sender messageId:messageId inReplyTo:inReplyTo references:references ts:ts];
   return newEmail;
 }
 
 - (instancetype)initWithEmailSubject:(NSString *)subject recipientsSet:(NSMutableArray *)recipientsSet threadId:(NSString *)threadId recipientsHash:(NSString *)recipientsHash textBody:(NSString *)textBody
-  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references
+  htmlBody:(NSString *)htmlBody sender:(NSDictionary *)sender messageId:(NSString *)messageId inReplyTo:(NSString *)inReplyTo references:(NSString *)references ts:(NSString *)ts
 {
   self = [super init];
   
@@ -46,6 +47,7 @@
     self.messageId = messageId;
     self.inReplyTo = inReplyTo;
     self.references = references;
+    self.ts = ts;
   }
   
   return self;
