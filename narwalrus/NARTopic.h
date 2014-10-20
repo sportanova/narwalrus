@@ -12,10 +12,11 @@
 @property NSString *subject;
 @property NSString *threadId;
 @property NSInteger emailCount;
+@property NSString *ts;
 
-+ (instancetype)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount;
++ (instancetype)createTopicWithSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount ts:(NSString *)ts;
 
 // Designated initializer for NARTopic
-- (instancetype)initWithTopicSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount;
+- (instancetype)initWithTopicSubject:(NSString *)subject threadId:(NSString *)threadId emailCount:(NSInteger)emailCount ts:(NSString *)ts;
 
 @end

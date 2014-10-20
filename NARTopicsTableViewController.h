@@ -13,7 +13,7 @@
 @interface NARTopicsTableViewController : UITableViewController
 @property(strong, atomic) NSURLSession *session;
 @property(strong, atomic) NSString *userId;
-@property(strong,atomic) NARConversation *conversation;
+@property(weak,atomic) NARConversation *conversation;
 @property(weak, atomic) NSString *serverUrl;
 
 - (instancetype)initWithConversation:(NARConversation *)conversation userId:(NSString *)userId;

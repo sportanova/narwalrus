@@ -124,27 +124,27 @@
   
   NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NARConversationsViewController * __weak weakSelf = self;
     NARConversationStore * __weak weakConvStore = [NARConversationStore sharedStore];
     
-     dispatch_async(dispatch_get_main_queue(), ^{
-       if(deleteStore == true) {
-         [weakConvStore deleteStore];
-       }
-       [weakSelf.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if(deleteStore == true) {
+        [weakConvStore deleteStore];
+      }
+      [weakSelf.tableView reloadData];
 
-       for(NSDictionary *conversationDict in jsonArray) {
-         NSString *subject = [conversationDict objectForKey:@"subject"];
-         NSString *recipientsHash = [conversationDict objectForKey:@"recipientsHash"];
+      for(NSDictionary *conversationDict in jsonArray) {
+        NSString *subject = [conversationDict objectForKey:@"subject"];
+        NSString *recipientsHash = [conversationDict objectForKey:@"recipientsHash"];
 
-         NSDictionary *recipients = [conversationDict objectForKey:@"recipients"];
-         NSString *emailAccountId = [conversationDict objectForKey:@"emailAccountId"];
-         NSInteger topicCount = [[conversationDict objectForKey:@"topicCount"] integerValue];
-         NSInteger emailCount = [[conversationDict objectForKey:@"emailCount"] integerValue];
-         NSString *ts = [conversationDict objectForKey:@"ts"];
+        NSDictionary *recipients = [conversationDict objectForKey:@"recipients"];
+        NSString *emailAccountId = [conversationDict objectForKey:@"emailAccountId"];
+        NSInteger topicCount = [[conversationDict objectForKey:@"topicCount"] integerValue];
+        NSInteger emailCount = [[conversationDict objectForKey:@"emailCount"] integerValue];
+        NSString *ts = [conversationDict objectForKey:@"ts"];
 
-         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount ts:ts];
+        [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount ts:ts];
        }
 
        [weakSelf.refreshControl endRefreshing];
@@ -163,7 +163,6 @@
 {
   CGFloat actualPosition = scrollView.contentOffset.y;
   CGFloat contentHeight = scrollView.contentSize.height - 600;
-  NSLog(@"%hhd" , self.isRefreshing);
   if (actualPosition >= contentHeight && contentHeight != -600 && self.isRefreshing == false) {
     NSString *lastConversationTime = [[[[NARConversationStore sharedStore] allConversations] lastObject] ts];
 

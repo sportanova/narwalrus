@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NARTopicsTableViewController.m"
-            timestampString = "433399177.185024"
+            timestampString = "435491065.058982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "-fetchTopicsWithUserId:recipientsHash:"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-fetchTopicsWithUserId:recipientsHash:lastTime:deleteStore:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NARConversationsViewController.m"
-            timestampString = "435485055.286995"
+            timestampString = "435486469.975173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "-fetchConversationsWithTime:deleteStore:"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,6 +282,84 @@
             startingLineNumber = "55"
             endingLineNumber = "55"
             landmarkName = "-sendMessage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NARTopicsTableViewController.m"
+            timestampString = "435491548.90761"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-fetchTopicsWithUserId:recipientsHash:lastTime:deleteStore:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__90-[NARTopicsTableViewController fetchTopicsWithUserId:recipientsHash:lastTime:deleteStore:]_block_invoke"
+                  moduleName = "narwalrus"
+                  urlString = "file:///Users/sportanova/Documents/narwalrus/NARTopicsTableViewController.m"
+                  timestampString = "435491562.706032"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "461">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__90-[NARTopicsTableViewController fetchTopicsWithUserId:recipientsHash:lastTime:deleteStore:]_block_invoke"
+                  moduleName = "narwalrus"
+                  urlString = "file:///Users/sportanova/Documents/narwalrus/NARTopicsTableViewController.m"
+                  timestampString = "435491562.706331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "477">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NARTopicsTableViewController.m"
+            timestampString = "435491581.812802"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-initWithConversation:userId:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NARTopicsTableViewController.m"
+            timestampString = "435491734.136261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-fetchTopicsWithUserId:recipientsHash:lastTime:deleteStore:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
