@@ -48,7 +48,7 @@
   [self.navigationController pushViewController:topicsVC animated:YES];
 }
 
-- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount ts:(NSString *)ts
+- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSDictionary *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount ts:(NSString *)ts
 {
   NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount ts:ts];
   
@@ -74,7 +74,7 @@
   cell.recipientsLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:18.0f];
   
   NSInteger recipientCount = (unsigned long)[[conversation recipientsEmailAddresses] count];
-  cell.recipientCountLabel.text = [NSString stringWithFormat:@"%lu", recipientCount];
+  cell.recipientCountLabel.text = [NSString stringWithFormat:@"%lu", (long)recipientCount];
   
   cell.topicCountLabel.text = [NSString stringWithFormat:@"%d", conversation.topicCount];
   cell.emailCountLabel.text = [NSString stringWithFormat:@"%d", conversation.emailCount];
