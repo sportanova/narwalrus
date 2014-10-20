@@ -8,14 +8,15 @@
 @synthesize emailAccountId = _emailAccountId;
 @synthesize emailCount = _emailCount;
 @synthesize topicCount = _topicCount;
+@synthesize ts = _ts;
 
 + (instancetype)createConversationWithRecipientsHash:(NSString *)hash
-  recipients:(NSDictionary *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount {
-  NARConversation *newConversation = [[self alloc] initConversationWithRecipientsHash:hash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount];
+  recipients:(NSDictionary *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount ts:(NSString *)ts {
+  NARConversation *newConversation = [[self alloc] initConversationWithRecipientsHash:hash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount ts:ts];
   return newConversation;
 }
 
-- (instancetype)initConversationWithRecipientsHash:(NSString *)hash recipients:(NSDictionary *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount
+- (instancetype)initConversationWithRecipientsHash:(NSString *)hash recipients:(NSDictionary *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount ts:(NSString *)ts
 {
   self = [super init];
   
@@ -36,6 +37,7 @@
     self.emailAccountId = emailAccountId;
     self.topicCount = topicCount;
     self.emailCount = emailCount;
+    self.ts = ts;
   }
   
   return self;

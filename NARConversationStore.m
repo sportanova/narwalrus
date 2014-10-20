@@ -42,9 +42,9 @@
 }
 
 - (NARConversation *)createConversationWithRecipientsHash:(NSString *)hash
-  recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount
+  recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount ts:(NSString *)ts
 {
-  NARConversation *conversation = [NARConversation createConversationWithRecipientsHash:hash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount];
+  NARConversation *conversation = [NARConversation createConversationWithRecipientsHash:hash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount ts:ts];
   
   [self.privateConversations addObject:conversation];
   

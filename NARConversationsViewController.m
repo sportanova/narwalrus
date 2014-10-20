@@ -12,9 +12,12 @@
 #import "NARTopicsTableViewController.h"
 #import "NARAppDelegate.h"
 #import "NARConversationCell.h"
+#import "NAREmail.h"
+#import "NAREmailStore.h"
 
 @interface NARConversationsViewController()
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, assign) BOOL isRefreshing;
 @end
 
 @implementation NARConversationsViewController
@@ -30,7 +33,7 @@
   self.userId = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] userId];
   self.serverUrl = [(NARAppDelegate *)[[UIApplication sharedApplication] delegate] serverUrl];
   
-  [self fetchConversations];
+  [self fetchConversationsWithTime:nil deleteStore:true];
 
   return self;
 }
@@ -45,9 +48,9 @@
   [self.navigationController pushViewController:topicsVC animated:YES];
 }
 
-- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount
+- (NARConversation *)addNewConversationWithSubject:(NSString *)subject recipientsHash:(NSString *)recipientsHash recipients:(NSString *)recipients emailAccountId:(NSString *)emailAccountId topicCount:(NSInteger)topicCount emailCount:(NSInteger)emailCount ts:(NSString *)ts
 {
-  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount];
+  NARConversation *newConversation = [[NARConversationStore sharedStore] createConversationWithRecipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount ts:ts];
   
   NSInteger lastRow = [[[NARConversationStore sharedStore] allConversations] indexOfObject:newConversation];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
@@ -104,12 +107,18 @@
 
 - (void)refresh:(id)sender
 {
-  [self fetchConversations];
+  [self fetchConversationsWithTime:nil deleteStore:true];
 }
 
-- (void)fetchConversations
+- (void)fetchConversationsWithTime:(NSString *)time deleteStore:(BOOL)deleteStore
 {
-  NSString *requestString = [NSString stringWithFormat:@"%@/conversations/ordered/%@", self.serverUrl, self.userId];
+  NSMutableString *requestString = nil;
+  if(time != nil) {
+    requestString = [NSMutableString stringWithFormat:@"%@/conversations/ordered/%@?ts=%@", self.serverUrl, self.userId, time];
+  }
+  else {
+    requestString = [NSMutableString stringWithFormat:@"%@/conversations/ordered/%@", self.serverUrl, self.userId];
+  }
   NSURL *url = [NSURL URLWithString:requestString];
   NSURLRequest *req = [NSURLRequest requestWithURL:url];
   
@@ -120,7 +129,9 @@
     NARConversationStore * __weak weakConvStore = [NARConversationStore sharedStore];
     
      dispatch_async(dispatch_get_main_queue(), ^{
-       [weakConvStore deleteStore];
+       if(deleteStore == true) {
+         [weakConvStore deleteStore];
+       }
        [weakSelf.tableView reloadData];
 
        for(NSDictionary *conversationDict in jsonArray) {
@@ -131,12 +142,14 @@
          NSString *emailAccountId = [conversationDict objectForKey:@"emailAccountId"];
          NSInteger topicCount = [[conversationDict objectForKey:@"topicCount"] integerValue];
          NSInteger emailCount = [[conversationDict objectForKey:@"emailCount"] integerValue];
+         NSString *ts = [conversationDict objectForKey:@"ts"];
 
-         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount];
+         [weakSelf addNewConversationWithSubject:subject recipientsHash:recipientsHash recipients:recipients emailAccountId:emailAccountId topicCount:topicCount emailCount:emailCount ts:ts];
        }
 
        [weakSelf.refreshControl endRefreshing];
        [weakSelf.tableView reloadData];
+       weakSelf.isRefreshing = false;
      });
    }];
   [dataTask resume];
@@ -144,6 +157,19 @@
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
   return [self init];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+  CGFloat actualPosition = scrollView.contentOffset.y;
+  CGFloat contentHeight = scrollView.contentSize.height - 600;
+  NSLog(@"%hhd" , self.isRefreshing);
+  if (actualPosition >= contentHeight && contentHeight != -600 && self.isRefreshing == false) {
+    NSString *lastConversationTime = [[[[NARConversationStore sharedStore] allConversations] lastObject] ts];
+
+    [self fetchConversationsWithTime:lastConversationTime deleteStore:false];
+    self.isRefreshing = true;
+  }
 }
 
 @end
